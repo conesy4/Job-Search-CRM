@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all advocates
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new advocate
+    </h2>
+
+    <form action="/insert_advocate" method="post">
+      <div>
+        <label for="contact_id_box">
+          Contact
+        </label>
+
+        <input type="text" id="contact_id_box" name="query_contact_id">
+      </div>
+
+      <div>
+        <label for="job_id_box">
+          Job
+        </label>
+
+        <input type="text" id="job_id_box" name="query_job_id">
+      </div>
+
+      <button>
+        Create advocate
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Contact
+        </th>
+
+        <th>
+          Job
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_advocates.each do |an_advocate| %>
+      <tr>
+        <td>
+          <%= an_advocate.id %>
+        </td>
+
+        <td>
+          <%= an_advocate.contact_id %>
+        </td>
+
+        <td>
+          <%= an_advocate.job_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_advocate.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_advocate.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/advocates/<%= an_advocate.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

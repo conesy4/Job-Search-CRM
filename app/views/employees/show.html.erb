@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Employee #<%= @the_employee.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/employees">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_employee/<%= @the_employee.id %>">
+          Delete employee
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Firm
+      </dt>
+      <dd>
+        <%= @the_employee.firm_id %>
+      </dd>
+
+      <dt>
+        Role
+      </dt>
+      <dd>
+        <%= @the_employee.role %>
+      </dd>
+
+      <dt>
+        First name
+      </dt>
+      <dd>
+        <%= @the_employee.first_name %>
+      </dd>
+
+      <dt>
+        Last name
+      </dt>
+      <dd>
+        <%= @the_employee.last_name %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_employee.notes %>
+      </dd>
+
+      <dt>
+        Alumni
+      </dt>
+      <dd>
+        <%= @the_employee.alumni %>
+      </dd>
+
+      <dt>
+        Linkedin
+      </dt>
+      <dd>
+        <%= @the_employee.linkedin %>
+      </dd>
+
+      <dt>
+        Email
+      </dt>
+      <dd>
+        <%= @the_employee.email %>
+      </dd>
+
+      <dt>
+        Connections count
+      </dt>
+      <dd>
+        <%= @the_employee.connections_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_employee.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_employee.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit employee
+    </h2>
+
+    <form action="/modify_employee/<%= @the_employee.id %>"  method="post" >
+      <div>
+        <label for="firm_id_box">
+          Firm
+        </label>
+
+        <input type="text" id="firm_id_box" name="query_firm_id" value="<%= @the_employee.firm_id %>">
+      </div>
+
+      <div>
+        <label for="role_box">
+          Role
+        </label>
+
+        <input type="text" id="role_box" name="query_role" value="<%= @the_employee.role %>">
+      </div>
+
+      <div>
+        <label for="first_name_box">
+          First name
+        </label>
+
+        <input type="text" id="first_name_box" name="query_first_name" value="<%= @the_employee.first_name %>">
+      </div>
+
+      <div>
+        <label for="last_name_box">
+          Last name
+        </label>
+
+        <input type="text" id="last_name_box" name="query_last_name" value="<%= @the_employee.last_name %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes" value="<%= @the_employee.notes %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="alumni_box" name="query_alumni" value="1" <%= "checked" if @the_employee.alumni %>>
+
+        <label for="alumni_box">
+            Alumni
+        </label>
+      </div>
+
+      <div>
+        <label for="linkedin_box">
+          Linkedin
+        </label>
+
+        <input type="text" id="linkedin_box" name="query_linkedin" value="<%= @the_employee.linkedin %>">
+      </div>
+
+      <div>
+        <label for="email_box">
+          Email
+        </label>
+
+        <input type="text" id="email_box" name="query_email" value="<%= @the_employee.email %>">
+      </div>
+
+      <div>
+        <label for="connections_count_box">
+          Connections count
+        </label>
+
+        <input type="text" id="connections_count_box" name="query_connections_count" value="<%= @the_employee.connections_count %>">
+      </div>
+
+      <button>
+        Update employee
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

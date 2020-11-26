@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Advocate #<%= @the_advocate.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/advocates">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_advocate/<%= @the_advocate.id %>">
+          Delete advocate
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Contact
+      </dt>
+      <dd>
+        <%= @the_advocate.contact_id %>
+      </dd>
+
+      <dt>
+        Job
+      </dt>
+      <dd>
+        <%= @the_advocate.job_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_advocate.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_advocate.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit advocate
+    </h2>
+
+    <form action="/modify_advocate/<%= @the_advocate.id %>"  method="post" >
+      <div>
+        <label for="contact_id_box">
+          Contact
+        </label>
+
+        <input type="text" id="contact_id_box" name="query_contact_id" value="<%= @the_advocate.contact_id %>">
+      </div>
+
+      <div>
+        <label for="job_id_box">
+          Job
+        </label>
+
+        <input type="text" id="job_id_box" name="query_job_id" value="<%= @the_advocate.job_id %>">
+      </div>
+
+      <button>
+        Update advocate
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

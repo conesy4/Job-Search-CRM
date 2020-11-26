@@ -1,0 +1,182 @@
+<div>
+  <div>
+    <h1>
+      List of all firms
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new firm
+    </h2>
+
+    <form action="/insert_firm" method="post">
+      <div>
+        <label for="industry_box">
+          Industry
+        </label>
+
+        <input type="text" id="industry_box" name="query_industry">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes">
+      </div>
+
+      <div>
+        <label for="jobs_count_box">
+          Jobs count
+        </label>
+
+        <input type="text" id="jobs_count_box" name="query_jobs_count">
+      </div>
+
+      <div>
+        <label for="bookmarks_count_box">
+          Bookmarks count
+        </label>
+
+        <input type="text" id="bookmarks_count_box" name="query_bookmarks_count">
+      </div>
+
+      <div>
+        <label for="employees_count_box">
+          Employees count
+        </label>
+
+        <input type="text" id="employees_count_box" name="query_employees_count">
+      </div>
+
+      <button>
+        Create firm
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Industry
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Jobs count
+        </th>
+
+        <th>
+          Bookmarks count
+        </th>
+
+        <th>
+          Employees count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_firms.each do |a_firm| %>
+      <tr>
+        <td>
+          <%= a_firm.id %>
+        </td>
+
+        <td>
+          <%= a_firm.industry %>
+        </td>
+
+        <td>
+          <%= a_firm.location %>
+        </td>
+
+        <td>
+          <%= a_firm.name %>
+        </td>
+
+        <td>
+          <%= a_firm.notes %>
+        </td>
+
+        <td>
+          <%= a_firm.jobs_count %>
+        </td>
+
+        <td>
+          <%= a_firm.bookmarks_count %>
+        </td>
+
+        <td>
+          <%= a_firm.employees_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_firm.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_firm.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/firms/<%= a_firm.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

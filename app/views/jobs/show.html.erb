@@ -1,0 +1,266 @@
+<div>
+  <div>
+    <h1>
+      Job #<%= @the_job.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/jobs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_job/<%= @the_job.id %>">
+          Delete job
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Firm
+      </dt>
+      <dd>
+        <%= @the_job.firm_id %>
+      </dd>
+
+      <dt>
+        Role
+      </dt>
+      <dd>
+        <%= @the_job.role %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_job.location %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_job.notes %>
+      </dd>
+
+      <dt>
+        Application deadline
+      </dt>
+      <dd>
+        <%= @the_job.application_deadline %>
+      </dd>
+
+      <dt>
+        Applied
+      </dt>
+      <dd>
+        <%= @the_job.applied %>
+      </dd>
+
+      <dt>
+        Application date
+      </dt>
+      <dd>
+        <%= @the_job.application_date %>
+      </dd>
+
+      <dt>
+        Application status
+      </dt>
+      <dd>
+        <%= @the_job.application_status %>
+      </dd>
+
+      <dt>
+        Application mode
+      </dt>
+      <dd>
+        <%= @the_job.application_mode %>
+      </dd>
+
+      <dt>
+        Application outcome
+      </dt>
+      <dd>
+        <%= @the_job.application_outcome %>
+      </dd>
+
+      <dt>
+        Application next steps
+      </dt>
+      <dd>
+        <%= @the_job.application_next_steps %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_job.user_id %>
+      </dd>
+
+      <dt>
+        Communications count
+      </dt>
+      <dd>
+        <%= @the_job.communications_count %>
+      </dd>
+
+      <dt>
+        Advocates count
+      </dt>
+      <dd>
+        <%= @the_job.advocates_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_job.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_job.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit job
+    </h2>
+
+    <form action="/modify_job/<%= @the_job.id %>"  method="post" >
+      <div>
+        <label for="firm_id_box">
+          Firm
+        </label>
+
+        <input type="text" id="firm_id_box" name="query_firm_id" value="<%= @the_job.firm_id %>">
+      </div>
+
+      <div>
+        <label for="role_box">
+          Role
+        </label>
+
+        <input type="text" id="role_box" name="query_role" value="<%= @the_job.role %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_job.location %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes" value="<%= @the_job.notes %>">
+      </div>
+
+      <div>
+        <label for="application_deadline_box">
+          Application deadline
+        </label>
+
+        <input type="date" id="application_deadline_box" name="query_application_deadline" value="<%= @the_job.application_deadline %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="applied_box" name="query_applied" value="1" <%= "checked" if @the_job.applied %>>
+
+        <label for="applied_box">
+            Applied
+        </label>
+      </div>
+
+      <div>
+        <label for="application_date_box">
+          Application date
+        </label>
+
+        <input type="date" id="application_date_box" name="query_application_date" value="<%= @the_job.application_date %>">
+      </div>
+
+      <div>
+        <label for="application_status_box">
+          Application status
+        </label>
+
+        <input type="text" id="application_status_box" name="query_application_status" value="<%= @the_job.application_status %>">
+      </div>
+
+      <div>
+        <label for="application_mode_box">
+          Application mode
+        </label>
+
+        <input type="text" id="application_mode_box" name="query_application_mode" value="<%= @the_job.application_mode %>">
+      </div>
+
+      <div>
+        <label for="application_outcome_box">
+          Application outcome
+        </label>
+
+        <input type="text" id="application_outcome_box" name="query_application_outcome" value="<%= @the_job.application_outcome %>">
+      </div>
+
+      <div>
+        <label for="application_next_steps_box">
+          Application next steps
+        </label>
+
+        <input type="text" id="application_next_steps_box" name="query_application_next_steps" value="<%= @the_job.application_next_steps %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_job.user_id %>">
+      </div>
+
+      <div>
+        <label for="communications_count_box">
+          Communications count
+        </label>
+
+        <input type="text" id="communications_count_box" name="query_communications_count" value="<%= @the_job.communications_count %>">
+      </div>
+
+      <div>
+        <label for="advocates_count_box">
+          Advocates count
+        </label>
+
+        <input type="text" id="advocates_count_box" name="query_advocates_count" value="<%= @the_job.advocates_count %>">
+      </div>
+
+      <button>
+        Update job
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

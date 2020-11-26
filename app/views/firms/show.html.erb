@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Firm #<%= @the_firm.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/firms">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_firm/<%= @the_firm.id %>">
+          Delete firm
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Industry
+      </dt>
+      <dd>
+        <%= @the_firm.industry %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_firm.location %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_firm.name %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_firm.notes %>
+      </dd>
+
+      <dt>
+        Jobs count
+      </dt>
+      <dd>
+        <%= @the_firm.jobs_count %>
+      </dd>
+
+      <dt>
+        Bookmarks count
+      </dt>
+      <dd>
+        <%= @the_firm.bookmarks_count %>
+      </dd>
+
+      <dt>
+        Employees count
+      </dt>
+      <dd>
+        <%= @the_firm.employees_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_firm.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_firm.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit firm
+    </h2>
+
+    <form action="/modify_firm/<%= @the_firm.id %>"  method="post" >
+      <div>
+        <label for="industry_box">
+          Industry
+        </label>
+
+        <input type="text" id="industry_box" name="query_industry" value="<%= @the_firm.industry %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_firm.location %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_firm.name %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes" value="<%= @the_firm.notes %>">
+      </div>
+
+      <div>
+        <label for="jobs_count_box">
+          Jobs count
+        </label>
+
+        <input type="text" id="jobs_count_box" name="query_jobs_count" value="<%= @the_firm.jobs_count %>">
+      </div>
+
+      <div>
+        <label for="bookmarks_count_box">
+          Bookmarks count
+        </label>
+
+        <input type="text" id="bookmarks_count_box" name="query_bookmarks_count" value="<%= @the_firm.bookmarks_count %>">
+      </div>
+
+      <div>
+        <label for="employees_count_box">
+          Employees count
+        </label>
+
+        <input type="text" id="employees_count_box" name="query_employees_count" value="<%= @the_firm.employees_count %>">
+      </div>
+
+      <button>
+        Update firm
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

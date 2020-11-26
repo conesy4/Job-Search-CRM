@@ -1,0 +1,210 @@
+<div>
+  <div>
+    <h1>
+      List of all communications
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new communication
+    </h2>
+
+    <form action="/insert_communication" method="post">
+      <div>
+        <label for="contact_id_box">
+          Contact
+        </label>
+
+        <input type="text" id="contact_id_box" name="query_contact_id">
+      </div>
+
+      <div>
+        <label for="job_id_box">
+          Job
+        </label>
+
+        <input type="text" id="job_id_box" name="query_job_id">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date">
+      </div>
+
+      <div>
+        <label for="comm_type_box">
+          Comm type
+        </label>
+
+        <input type="text" id="comm_type_box" name="query_comm_type">
+      </div>
+
+      <div>
+        <input type="checkbox" id="outgoing_box" name="query_outgoing" value="1">
+
+        <label for="outgoing_box">Outgoing</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="incoming_box" name="query_incoming" value="1">
+
+        <label for="incoming_box">Incoming</label>
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes">
+      </div>
+
+      <div>
+        <label for="followup_date_box">
+          Followup date
+        </label>
+
+        <input type="date" id="followup_date_box" name="query_followup_date">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <button>
+        Create communication
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Contact
+        </th>
+
+        <th>
+          Job
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Comm type
+        </th>
+
+        <th>
+          Outgoing
+        </th>
+
+        <th>
+          Incoming
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Followup date
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_communications.each do |a_communication| %>
+      <tr>
+        <td>
+          <%= a_communication.id %>
+        </td>
+
+        <td>
+          <%= a_communication.contact_id %>
+        </td>
+
+        <td>
+          <%= a_communication.job_id %>
+        </td>
+
+        <td>
+          <%= a_communication.date %>
+        </td>
+
+        <td>
+          <%= a_communication.comm_type %>
+        </td>
+
+        <td>
+          <%= a_communication.outgoing %>
+        </td>
+
+        <td>
+          <%= a_communication.incoming %>
+        </td>
+
+        <td>
+          <%= a_communication.notes %>
+        </td>
+
+        <td>
+          <%= a_communication.followup_date %>
+        </td>
+
+        <td>
+          <%= a_communication.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_communication.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_communication.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/communications/<%= a_communication.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

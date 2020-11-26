@@ -15,6 +15,15 @@
     </h2>
 
     <form action="/insert_firm" method="post">
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
       <div>
         <label for="industry_box">
           Industry
@@ -32,43 +41,11 @@
       </div>
 
       <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
-      </div>
-
-      <div>
         <label for="notes_box">
           Notes
         </label>
 
         <input type="text" id="notes_box" name="query_notes">
-      </div>
-
-      <div>
-        <label for="jobs_count_box">
-          Jobs count
-        </label>
-
-        <input type="text" id="jobs_count_box" name="query_jobs_count">
-      </div>
-
-      <div>
-        <label for="bookmarks_count_box">
-          Bookmarks count
-        </label>
-
-        <input type="text" id="bookmarks_count_box" name="query_bookmarks_count">
-      </div>
-
-      <div>
-        <label for="employees_count_box">
-          Employees count
-        </label>
-
-        <input type="text" id="employees_count_box" name="query_employees_count">
       </div>
 
       <button>
@@ -88,15 +65,15 @@
         </th>
 
         <th>
+          Name
+        </th>
+
+        <th>
           Industry
         </th>
 
         <th>
           Location
-        </th>
-
-        <th>
-          Name
         </th>
 
         <th>
@@ -116,14 +93,6 @@
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
         </th>
       </tr>
 
@@ -134,15 +103,17 @@
         </td>
 
         <td>
+          <a href="/firms/<%= a_firm.id %>">
+          <%= a_firm.name %>
+          </a>
+        </td>
+
+        <td>
           <%= a_firm.industry %>
         </td>
 
         <td>
           <%= a_firm.location %>
-        </td>
-
-        <td>
-          <%= a_firm.name %>
         </td>
 
         <td>
@@ -162,15 +133,14 @@
         </td>
 
         <td>
-          <%= time_ago_in_words(a_firm.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_firm.updated_at) %> ago
+          <a href="/bookmarks">
+            Add Bookmark
+          </a>
         </td>
 
         <td>
-          <a href="/firms/<%= a_firm.id %>">
-            Show details
+          <a href="/employees">
+            Add Employee
           </a>
         </td>
       </tr>

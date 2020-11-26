@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Firm #<%= @the_firm.id %> details
+      <%= @the_firm.name %>
     </h1>
 
     <div>
@@ -31,13 +31,6 @@
       </dt>
       <dd>
         <%= @the_firm.location %>
-      </dd>
-
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_firm.name %>
       </dd>
 
       <dt>
@@ -96,6 +89,14 @@
 
     <form action="/modify_firm/<%= @the_firm.id %>"  method="post" >
       <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_firm.name %>">
+      </div>
+
+      <div>
         <label for="industry_box">
           Industry
         </label>
@@ -112,43 +113,11 @@
       </div>
 
       <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_firm.name %>">
-      </div>
-
-      <div>
         <label for="notes_box">
           Notes
         </label>
 
         <input type="text" id="notes_box" name="query_notes" value="<%= @the_firm.notes %>">
-      </div>
-
-      <div>
-        <label for="jobs_count_box">
-          Jobs count
-        </label>
-
-        <input type="text" id="jobs_count_box" name="query_jobs_count" value="<%= @the_firm.jobs_count %>">
-      </div>
-
-      <div>
-        <label for="bookmarks_count_box">
-          Bookmarks count
-        </label>
-
-        <input type="text" id="bookmarks_count_box" name="query_bookmarks_count" value="<%= @the_firm.bookmarks_count %>">
-      </div>
-
-      <div>
-        <label for="employees_count_box">
-          Employees count
-        </label>
-
-        <input type="text" id="employees_count_box" name="query_employees_count" value="<%= @the_firm.employees_count %>">
       </div>
 
       <button>
@@ -159,3 +128,98 @@
 </div>
 
 <hr>
+
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Firm
+        </th>
+
+        <th>
+          Role
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Alumni
+        </th>
+
+        <th>
+          Linkedin
+        </th>
+
+        <th>
+          Email
+        </th>
+
+        <th>
+          Connections count
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @the_firm.employees.each do |an_employee| %>
+      <tr>
+        <td>
+          <%= an_employee.id %>
+        </td>
+
+        <td>
+          <a href="/employees/<%= an_employee.id %>">
+            <%= an_employee.first_name %> <%= an_employee.last_name %>
+           </a> 
+        </td>
+
+        <td>
+          <%= an_employee.firm.name %>
+        </td>
+
+        <td>
+          <%= an_employee.role %>
+        </td>
+
+        <td>
+          <%= an_employee.notes %>
+        </td>
+
+        <td>
+          <%= an_employee.alumni %>
+        </td>
+
+        <td>
+          <%= an_employee.linkedin %>
+        </td>
+
+        <td>
+          <%= an_employee.email %>
+        </td>
+
+        <td>
+          <%= an_employee.connections_count %>
+        </td>
+
+        <td>
+          <a href="/contacts">
+            Add as Contact
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

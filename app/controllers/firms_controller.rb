@@ -2,7 +2,7 @@ class FirmsController < ApplicationController
   def index
     matching_firms = Firm.all
 
-    @list_of_firms = matching_firms.order({ :created_at => :desc })
+    @list_of_firms = matching_firms.order({ :name => :asc })
 
     render({ :template => "firms/index.html.erb" })
   end

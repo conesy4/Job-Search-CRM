@@ -4,6 +4,10 @@ class BookmarksController < ApplicationController
 
     @list_of_bookmarks = matching_bookmarks.order({ :created_at => :desc })
 
+    matching_firms = Firm.all
+
+    @list_of_firms = matching_firms.order({ :name => :asc })
+        
     render({ :template => "bookmarks/index.html.erb" })
   end
 

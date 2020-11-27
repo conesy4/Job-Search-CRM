@@ -5,6 +5,11 @@ class ContactsController < ApplicationController
     @list_of_contacts = matching_contacts.order({ :created_at => :desc })
 
     render({ :template => "contacts/index.html.erb" })
+
+    matching_employees = Employee.all
+
+    @list_of_employees = matching_employees.order({ :last_name => :asc })
+    
   end
 
   def show

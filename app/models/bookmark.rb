@@ -29,4 +29,8 @@ class Bookmark < ApplicationRecord
   
   validates(:firm_id, { :presence => true })  
 
+  validates(:user_id, { :uniqueness => { :scope => ["firm_id"], :message => "Already Bookmarked" } })
+
+  validates(:firm_id, { :uniqueness => { :scope => ["user_id"], :message => "Already Bookmarked" } })
+
 end

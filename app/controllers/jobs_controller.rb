@@ -1,5 +1,10 @@
 class JobsController < ApplicationController
   def index
+
+    matching_firms = Firm.all
+
+    @list_of_firms = matching_firms.order({ :name => :asc })
+
     matching_jobs = Job.all
 
     @list_of_jobs = matching_jobs.order({ :created_at => :desc })

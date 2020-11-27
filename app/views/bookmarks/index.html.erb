@@ -20,15 +20,15 @@
           Firm
         </label>
 
-        <input type="text" id="firm_id_box" name="query_firm_id">
+        <select id="firm_id_box" name="query_firm_id">
+          <% @list_of_firms.each do |a_firm| %>
+            <option value = <%=a_firm.id%>><%=a_firm.name%></option>
+          <%end%>
+        </select>
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
+        <input type = hidden id="user_id_box" name="query_user_id" value= "<%= @current_user.id%>"">
       </div>
 
       <div>

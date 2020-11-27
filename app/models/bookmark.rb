@@ -15,6 +15,14 @@ class Bookmark < ApplicationRecord
   
   belongs_to(:firm, { :required => false, :class_name => "Firm", :foreign_key => "firm_id", :counter_cache => true })
   
+#  has_many(:contacts, { :through => :firms, :source => :contact })
+
+  #has_many(:contacts, {
+  #  :through => "Firm",
+  #  :through => "Employee"
+  #  :source => "Contact"
+  #})
+
   #Add Validations (Guide)
   
   validates(:user_id, { :presence => true })

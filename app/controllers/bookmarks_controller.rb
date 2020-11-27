@@ -14,7 +14,9 @@ class BookmarksController < ApplicationController
 
     @the_bookmark = matching_bookmarks.at(0)
 
-    render({ :template => "bookmarks/show.html.erb" })
+#    matching_contacts = Contacts.where({ :firm_id => @the_bookmark.firm_id })
+
+#    render({ :template => "bookmarks/show.html.erb" })
   end
 
   def create

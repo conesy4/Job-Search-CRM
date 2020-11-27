@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FinalProject</title>
+    <%= csrf_meta_tags %>
+
+    <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
+    <meta charset="utf-8">
+
+    <!-- Make it responsive to small screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+  </head>
+
+  <body>
+    
+    <ul>
+      <li><a href="/firms">Firms</a></li>
+      <li><a href="/employees">Employees</a></li>
+      <li><a href="/bookmarks">My Companies</a></li>
+      <li><a href="/contacts">My Contacts</a></li>
+      <li><a href="/jobs">My Jobs</a></li>
+      <li><a href="/communications">My Comms</a></li>
+      <li><a href="/advocates">My Advocates</a></li>
+      <li><a href="/sign_up">Sign Up</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/edit_profile">Edit Profile</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+    
+    <%= yield %>
+  </body>
+</html>

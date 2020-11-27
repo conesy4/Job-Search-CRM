@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Contact #<%= @the_contact.id %> details
+      My Contact: <%= @the_contact.employee.first_name %> <%= @the_contact.employee.last_name %>
     </h1>
 
     <div>
@@ -195,26 +195,119 @@
         <input type="date" id="followup_date_box" name="query_followup_date" value="<%= @the_contact.followup_date %>">
       </div>
 
-      <div>
-        <label for="communications_count_box">
-          Communications count
-        </label>
-
-        <input type="text" id="communications_count_box" name="query_communications_count" value="<%= @the_contact.communications_count %>">
-      </div>
-
-      <div>
-        <label for="advocates_count_box">
-          Advocates count
-        </label>
-
-        <input type="text" id="advocates_count_box" name="query_advocates_count" value="<%= @the_contact.advocates_count %>">
-      </div>
-
       <button>
         Update contact
       </button>
     </form>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+<div>
+  <div>
+
+  <h2> 
+    Communications
+  </h2>
+
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Contact
+        </th>
+
+        <th>
+          Job
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Comm type
+        </th>
+
+        <th>
+          Outgoing
+        </th>
+
+        <th>
+          Incoming
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Followup date
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @the_contact.communications.each do |a_communication| %>
+      <tr>
+        <td>
+          <%= a_communication.id %>
+        </td>
+
+        <td>
+          <%= a_communication.contact_id %>
+        </td>
+
+        <td>
+          <%= a_communication.job_id %>
+        </td>
+
+        <td>
+          <%= a_communication.date %>
+        </td>
+
+        <td>
+          <%= a_communication.comm_type %>
+        </td>
+
+        <td>
+          <%= a_communication.outgoing %>
+        </td>
+
+        <td>
+          <%= a_communication.incoming %>
+        </td>
+
+        <td>
+          <%= a_communication.notes %>
+        </td>
+
+        <td>
+          <%= a_communication.followup_date %>
+        </td>
+
+        <td>
+          <%= a_communication.user_id %>
+        </td>
+
+        <td>
+          <a href="/communications/<%= a_communication.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
   </div>
 </div>
 

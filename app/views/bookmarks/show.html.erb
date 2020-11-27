@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Bookmark #<%= @the_bookmark.id %> details
+      My Company: <%= @the_bookmark.firm.name %>
     </h1>
 
     <div>
@@ -19,18 +19,27 @@
     </div>
 
     <dl>
+
+    <dl>
       <dt>
-        Firm
+        Industry
       </dt>
       <dd>
-        <%= @the_bookmark.firm_id %>
+        <%= @the_bookmark.firm.industry %>
       </dd>
 
       <dt>
-        User
+        Location
       </dt>
       <dd>
-        <%= @the_bookmark.user_id %>
+        <%= @the_bookmark.firm.location %>
+      </dd>
+
+      <dt>
+        Jobs count
+      </dt>
+      <dd>
+        <%= @the_bookmark.firm.jobs_count %>
       </dd>
 
       <dt>
@@ -40,19 +49,6 @@
         <%= @the_bookmark.notes %>
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_bookmark.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_bookmark.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
@@ -99,3 +95,158 @@
 </div>
 
 <hr>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Employee
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Firm
+        </th>
+
+        <th>
+          Role
+        </th>
+
+        <th>
+          Alumni
+        </th>
+
+        <th>
+          Linkedin
+        </th>
+
+        <th>
+          Email
+        </th>
+        
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Relationship
+        </th>
+
+        <th>
+          Last outgoing comm
+        </th>
+
+        <th>
+          Last incoming comm
+        </th>
+
+        <th>
+          Followup date
+        </th>
+
+        <th>
+          Communications count
+        </th>
+
+        <th>
+          Advocates count
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_contacts.each do |a_contact| %>
+      <tr>
+
+        <td>
+          <%= a_contact.id %>
+        </td>
+
+        <td>
+          <%= a_contact.user_id %>
+        </td>
+
+        <td>
+          <%= a_contact.employee_id %>
+        </td>
+
+        <td>
+          <a href="/employees/<%= a_contact.employee.id %>">
+            <%= a_contact.employee.first_name %> <%= a_contact.employee.last_name %>
+           </a> 
+        </td>
+
+        <td>
+          <a href="/firms/<%= a_contact.employee.firm.id %>">
+            <%= a_contact.employee.firm.name %>
+          </a>
+        </td>
+
+        <td>
+          <%= a_contact.employee.role %>
+        </td>
+
+        <td>
+          <%= a_contact.employee.alumni %>
+        </td>
+
+        <td>
+          <%= a_contact.employee.linkedin %>
+        </td>
+
+        <td>
+          <%= a_contact.employee.email %>
+        </td>
+
+        <td>
+          <%= a_contact.notes %>
+        </td>
+
+        <td>
+          <%= a_contact.relationship %>
+        </td>
+
+        <td>
+          <%= a_contact.last_outgoing_comm %>
+        </td>
+
+        <td>
+          <%= a_contact.last_incoming_comm %>
+        </td>
+
+        <td>
+          <%= a_contact.followup_date %>
+        </td>
+
+        <td>
+          <%= a_contact.communications_count %>
+        </td>
+
+        <td>
+          <%= a_contact.advocates_count %>
+        </td>
+
+        <td>
+          <a href="/contacts/<%= a_contact.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

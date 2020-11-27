@@ -78,14 +78,6 @@
         <input type="text" id="email_box" name="query_email">
       </div>
 
-      <div>
-        <label for="connections_count_box">
-          Connections count
-        </label>
-
-        <input type="text" id="connections_count_box" name="query_connections_count">
-      </div>
-
       <button>
         Create employee
       </button>
@@ -151,7 +143,9 @@
         </td>
 
         <td>
-          <%= an_employee.firm_id %>
+          <a href="/firms/<%= an_employee.firm.id %>">
+            <%= an_employee.firm.name %>
+          </a>
         </td>
 
         <td>

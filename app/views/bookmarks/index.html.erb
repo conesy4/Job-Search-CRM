@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all bookmarks
+      My Companies
     </h1>
   </div>
 </div>
@@ -107,6 +107,96 @@
         <td>
           <a href="/bookmarks/<%= a_bookmark.id %>">
             Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Industry
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Jobs count
+        </th>
+
+        <th>
+          Bookmarks count
+        </th>
+
+        <th>
+          Employees count
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_bookmarks.each do |a_firm| %>
+      <tr>
+        <td>
+          <%= a_firm.firm.id %>
+        </td>
+
+        <td>
+          <a href="/bookmarks/<%= a_firm.id %>">
+          <%= a_firm.firm.name %>
+          </a>
+        </td>
+
+        <td>
+          <%= a_firm.firm.industry %>
+        </td>
+
+        <td>
+          <%= a_firm.firm.location %>
+        </td>
+
+        <td>
+          <%= a_firm.notes %>
+        </td>
+
+        <td>
+          <%= a_firm.firm.jobs_count %>
+        </td>
+
+        <td>
+          <%= a_firm.firm.bookmarks_count %>
+        </td>
+
+        <td>
+          <%= a_firm.firm.employees_count %>
+        </td>
+
+        <td>
+          <a href="/contacts">
+            Add Contact
           </a>
         </td>
       </tr>

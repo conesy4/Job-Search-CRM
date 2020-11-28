@@ -43,7 +43,7 @@ class ContactsController < ApplicationController
 
     if the_contact.valid?
       the_contact.save
-      redirect_to("/contacts", { :notice => "Contact created successfully." })
+      redirect_to("/contacts/#{the_contact.id}", { :notice => "Contact created successfully." })
     else
       redirect_to("/contacts", { :notice => "Contact failed to create successfully." })
     end

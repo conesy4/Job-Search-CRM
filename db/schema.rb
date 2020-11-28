@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_201934) do
+ActiveRecord::Schema.define(version: 2020_11_27_204350) do
 
   create_table "advocates", force: :cascade do |t|
     t.integer "contact_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_201934) do
     t.integer "advocates_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "bookmark_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -100,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_201934) do
     t.integer "advocates_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "bookmark_id"
   end
 
   create_table "users", force: :cascade do |t|

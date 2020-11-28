@@ -1,13 +1,13 @@
 class BookmarksController < ApplicationController
   def index
-    matching_bookmarks = Bookmark.all
-
-    @list_of_bookmarks = matching_bookmarks.order({ :created_at => :desc })
+    matching_bookmarks = Bookmark.where({ :user_id => @current_user})
+    
+    @list_of_bookmarks = matching_bookmarks.order({ :name => :asc })
 
     matching_firms = Firm.all
 
     @list_of_firms = matching_firms.order({ :name => :asc })
-        
+
     render({ :template => "bookmarks/index.html.erb" })
   end
 

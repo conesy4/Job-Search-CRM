@@ -17,6 +17,7 @@
 #  role                   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  bookmark_id            :integer
 #  firm_id                :integer
 #  user_id                :integer
 #
@@ -29,6 +30,8 @@ class Job < ApplicationRecord
   has_many(:communications, { :class_name => "Communication", :foreign_key => "job_id" })
   
   has_many(:advocates, { :class_name => "Advocate", :foreign_key => "job_id", :dependent => :destroy })
+
+  belongs_to(:bookmark, { :required => false, :class_name => "Bookmark", :foreign_key => "bookmark_id", :counter_cache => true })
   
   #Add Indirect Associations (Guide)
   
@@ -41,5 +44,7 @@ class Job < ApplicationRecord
   validates(:role, { :presence => true })
   
   validates(:firm_id, { :presence => true })
+
+  #validates(:bookmark_id, { :presence => true })
 
 end

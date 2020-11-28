@@ -1,15 +1,19 @@
 class ContactsController < ApplicationController
   def index
-    matching_contacts = Contact.all
+    matching_bookmarks = Bookmark.where({ :user_id => @current_user})
+    
+    @list_of_bookmarks = matching_bookmarks.order({ :name => :asc })
 
-    @list_of_contacts = matching_contacts.order({ :created_at => :desc })
+    matching_contacts = Contact.where({ :user_id => @current_user})
+
+    @list_of_contacts = matching_contacts.order({ :last_name => :asc })
 
     render({ :template => "contacts/index.html.erb" })
 
     matching_employees = Employee.all
 
     @list_of_employees = matching_employees.order({ :last_name => :asc })
-    
+
   end
 
   def show
@@ -26,6 +30,7 @@ class ContactsController < ApplicationController
     the_contact = Contact.new
     the_contact.user_id = params.fetch("query_user_id")
     the_contact.employee_id = params.fetch("query_employee_id")
+    the_contact.bookmark_id = params.fetch("query_bookmark_id")
     the_contact.notes = params.fetch("query_notes")
     the_contact.relationship = params.fetch("query_relationship")
     the_contact.outgoing_comms = params.fetch("query_outgoing_comms")
@@ -50,6 +55,7 @@ class ContactsController < ApplicationController
 
     the_contact.user_id = params.fetch("query_user_id")
     the_contact.employee_id = params.fetch("query_employee_id")
+    the_contact.bookmark_id = params.fetch("query_bookmark_id")
     the_contact.notes = params.fetch("query_notes")
     the_contact.relationship = params.fetch("query_relationship")
     the_contact.outgoing_comms = params.fetch("query_outgoing_comms")

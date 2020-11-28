@@ -162,4 +162,7 @@ Rails.application.routes.draw do
              
   #------------------------------
 
+  # USER LIST 
+  get("/users", { :controller => "user_authentication", :action => "index" })
+
 end

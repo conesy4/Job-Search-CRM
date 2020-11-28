@@ -16,6 +16,23 @@ class ApplicationController < ActionController::Base
   end
 
   def home
+    matching_bookmarks = Bookmark.where({ :user_id => @current_user})
+    
+    @list_of_bookmarks = matching_bookmarks.order({ :name => :asc })
+
+    matching_contacts = Contact.where({ :user_id => @current_user})
+
+    @list_of_contacts = matching_contacts.order({ :last_name => :asc })
+
+    matching_jobs = Job.where({ :user_id => @current_user})
+
+    @list_of_jobs = matching_jobs.order({ :created_at => :desc })
+
+    matching_communications = Communication.where({ :user_id => @current_user})
+
+    @list_of_communications = matching_communications.order({ :created_at => :desc })
+
+    
     render({ :template => "home.html.erb" })
   end
 

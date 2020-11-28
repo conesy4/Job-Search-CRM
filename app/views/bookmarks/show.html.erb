@@ -42,6 +42,8 @@
         <%= @the_bookmark.firm.jobs_count %>
       </dd>
 
+<hr>
+
       <dt>
         Notes
       </dt>
@@ -53,43 +55,38 @@
   </div>
 </div>
 
+
+
 <hr>
 
 
 <div>
   <div>
-    <h2>
-      Edit bookmark
-    </h2>
 
     <form action="/modify_bookmark/<%= @the_bookmark.id %>"  method="post" >
       <div>
-        <label for="firm_id_box">
-          Firm
-        </label>
-
-        <input type="text" id="firm_id_box" name="query_firm_id" value="<%= @the_bookmark.firm_id %>">
+        <input type="hidden" id="firm_id_box" name="query_firm_id" value="<%= @the_bookmark.firm_id %>">
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_bookmark.user_id %>">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_bookmark.user_id %>">
       </div>
 
       <div>
         <label for="notes_box">
-          Notes
+          <b>Update Notes</b>
         </label>
 
-        <input type="text" id="notes_box" name="query_notes" value="<%= @the_bookmark.notes %>">
-      </div>
+        <div>
 
-      <button>
-        Update bookmark
-      </button>
+        <input type="text" id="notes_box" name="query_notes" value="<%= @the_bookmark.notes %>">
+      
+
+        <button>
+          Update
+        </button>
+        </div>
+      </div>
     </form>
   </div>
 </div>

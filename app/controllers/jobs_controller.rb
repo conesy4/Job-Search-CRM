@@ -5,7 +5,7 @@ class JobsController < ApplicationController
 
     @list_of_firms = matching_firms.order({ :name => :asc })
 
-    matching_jobs = Job.all
+    matching_jobs = Job.where({ :user_id => @current_user})
 
     @list_of_jobs = matching_jobs.order({ :created_at => :desc })
 

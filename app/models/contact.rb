@@ -14,6 +14,7 @@
 #  relationship         :string
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
+#  bookmark_id          :integer
 #  employee_id          :integer
 #  user_id              :integer
 #
@@ -27,6 +28,8 @@ class Contact < ApplicationRecord
   
   belongs_to(:employee, { :required => false, :class_name => "Employee", :foreign_key => "employee_id", :counter_cache => :connections_count })
   
+  belongs_to(:bookmark, { :required => false, :class_name => "Bookmark", :foreign_key => "bookmark_id"})
+  
   #Add Indirect Associations (Guide)
   
   has_many(:jobs, { :through => :advocates, :source => :job })
@@ -38,5 +41,7 @@ class Contact < ApplicationRecord
   validates(:user_id, { :presence => true })
   
   validates(:employee_id, { :presence => true })
+
+  #validates(:employee_id, { :uniqueness => { :scope => ["bookmark_id"], :message => "Already added" } })
 
 end

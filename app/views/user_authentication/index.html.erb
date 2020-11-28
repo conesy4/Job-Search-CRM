@@ -1,0 +1,51 @@
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          First Name
+        </th>
+
+        <th>
+          Last Name
+        </th>
+
+        <th>
+          Email
+        </th>
+
+        <th>
+          Password
+        </th>
+
+      <% @list_of_users.each do |a_user| %>
+      <tr>
+        <td>
+          <%= a_user.id %>
+        </td>
+
+        <td>
+          <%= a_user.first_name %>
+        </td>
+
+        <td>
+          <%= a_user.last_name %>
+        </td>
+
+        <td>
+          <%= a_user.email %>
+        </td>
+
+        <td>
+          <%= a_user.first_name %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

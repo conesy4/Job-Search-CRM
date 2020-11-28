@@ -1,6 +1,6 @@
 class CommunicationsController < ApplicationController
   def index
-    matching_communications = Communication.all
+    matching_communications = Communication.where({ :user_id => @current_user})
 
     @list_of_communications = matching_communications.order({ :created_at => :desc })
 

@@ -11,6 +11,10 @@
 #
 class Bookmark < ApplicationRecord
 
+  has_many(:contacts, { :class_name => "Contact", :foreign_key => "bookmark_id", :dependent => :destroy })
+
+  has_many(:jobs, { :class_name => "Job", :foreign_key => "bookmark_id", :dependent => :destroy })
+
   belongs_to(:user, { :required => false, :class_name => "User", :foreign_key => "user_id", :counter_cache => true })
   
   belongs_to(:firm, { :required => false, :class_name => "Firm", :foreign_key => "firm_id", :counter_cache => true })

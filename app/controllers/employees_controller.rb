@@ -2,7 +2,11 @@ class EmployeesController < ApplicationController
   def index
     matching_employees = Employee.all
 
-    @list_of_employees = matching_employees.order({ :last_name => :asc })
+    @list_of_employees = matching_employees.order({ :firm_id => :asc, :last_name => :asc})
+
+    matching_firms = Firm.all
+
+    @list_of_firms = matching_firms.order({ :name => :asc })
 
     render({ :template => "employees/index.html.erb" })
   end
@@ -27,11 +31,11 @@ class EmployeesController < ApplicationController
     the_employee.alumni = params.fetch("query_alumni", false)
     the_employee.linkedin = params.fetch("query_linkedin")
     the_employee.email = params.fetch("query_email")
-    the_employee.connections_count = params.fetch("query_connections_count")
+    #the_employee.connections_count = params.fetch("query_connections_count")
 
     if the_employee.valid?
       the_employee.save
-      redirect_to("/employees", { :notice => "Employee created successfully." })
+      redirect_to("/employees/#{the_employee.id}", { :notice => "Employee created successfully." })
     else
       redirect_to("/employees", { :notice => "Employee failed to create successfully." })
     end

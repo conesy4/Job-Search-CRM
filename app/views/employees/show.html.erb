@@ -22,6 +22,7 @@
       <dt>
         Firm
       </dt>
+
       <dd>
         <a href="/firms/<%= @the_employee.firm.id %>">
           <%= @the_employee.firm.name %>
@@ -115,11 +116,7 @@
      
      
       <div>
-        <label for="firm_id_box">
-          Firm
-        </label>
-
-        <input type="text" id="firm_id_box" name="query_firm_id" value="<%= @the_employee.firm_id %>">
+        <input type="hidden" id="firm_id_box" name="query_firm_id" value="<%= @the_employee.firm_id %>">
       </div>
 
       <div>
@@ -163,11 +160,7 @@
       </div>
 
       <div>
-        <label for="connections_count_box">
-          Connections count
-        </label>
-
-        <input type="text" id="connections_count_box" name="query_connections_count" value="<%= @the_employee.connections_count %>">
+        <input type="hidden" id="connections_count_box" name="query_connections_count" value="<%= @the_employee.connections_count %>">
       </div>
 
       <button>

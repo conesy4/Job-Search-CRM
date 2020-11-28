@@ -14,7 +14,12 @@ class FirmsController < ApplicationController
 
     @the_firm = matching_firms.at(0)
 
+    matching_employees = Employee.where({ :firm_id => the_id})
+
+    @list_of_employees = matching_employees.order({ :last_name => :asc })
+    
     render({ :template => "firms/show.html.erb" })
+
   end
 
   def create

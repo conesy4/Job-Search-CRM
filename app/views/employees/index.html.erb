@@ -10,84 +10,6 @@
 
 <div>
   <div>
-    <h2>
-      Add a new employee
-    </h2>
-
-    <form action="/insert_employee" method="post">
-
-      <div>
-        <label for="first_name_box">
-          First name
-        </label>
-
-        <input type="text" id="first_name_box" name="query_first_name">
-      </div>
-
-      <div>
-        <label for="last_name_box">
-          Last name
-        </label>
-
-        <input type="text" id="last_name_box" name="query_last_name">
-      </div>
-
-      <div>
-        <label for="firm_id_box">
-          Firm
-        </label>
-
-        <input type="text" id="firm_id_box" name="query_firm_id">
-      </div>
-
-      <div>
-        <label for="role_box">
-          Role
-        </label>
-
-        <input type="text" id="role_box" name="query_role">
-      </div>
-
-      <div>
-        <label for="notes_box">
-          Notes
-        </label>
-
-        <input type="text" id="notes_box" name="query_notes">
-      </div>
-
-      <div>
-        <input type="checkbox" id="alumni_box" name="query_alumni" value="1">
-
-        <label for="alumni_box">Alumni</label>
-      </div>
-
-      <div>
-        <label for="linkedin_box">
-          Linkedin
-        </label>
-
-        <input type="text" id="linkedin_box" name="query_linkedin">
-      </div>
-
-      <div>
-        <label for="email_box">
-          Email
-        </label>
-
-        <input type="text" id="email_box" name="query_email">
-      </div>
-
-      <button>
-        Create employee
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
-<div>
-  <div>
     <table>
       <tr>
         <th>
@@ -184,3 +106,87 @@
 </div>
 
 <hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new employee
+    </h2>
+
+    <form action="/insert_employee" method="post">
+
+      <div>
+        <label for="first_name_box">
+          First name
+        </label>
+
+        <input type="text" id="first_name_box" name="query_first_name">
+      </div>
+
+      <div>
+        <label for="last_name_box">
+          Last name
+        </label>
+
+        <input type="text" id="last_name_box" name="query_last_name">
+      </div>
+
+      <div>
+        <label for="firm_id_box">
+          Firm
+        </label>
+
+        <select id="firm_id_box" name="query_firm_id">
+          <% @list_of_firms.each do |a_firm| %>
+            <option value = <%=a_firm.id%>><%=a_firm.name%></option>
+          <%end%>
+        </select>
+      </div>
+
+      <div>
+        <label for="role_box">
+          Role
+        </label>
+
+        <input type="text" id="role_box" name="query_role">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes">
+      </div>
+
+      <div>
+        <input type="checkbox" id="alumni_box" name="query_alumni" value="1">
+
+        <label for="alumni_box">Alumni</label>
+      </div>
+
+      <div>
+        <label for="linkedin_box">
+          Linkedin
+        </label>
+
+        <input type="text" id="linkedin_box" name="query_linkedin">
+      </div>
+
+      <div>
+        <label for="email_box">
+          Email
+        </label>
+
+        <input type="text" id="email_box" name="query_email">
+      </div>
+
+      <button>
+        Create employee
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+

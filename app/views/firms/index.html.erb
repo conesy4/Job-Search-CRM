@@ -48,6 +48,18 @@
         <input type="text" id="notes_box" name="query_notes">
       </div>
 
+      <div>
+        <input type="hidden" id="jobs_count_box" name="query_jobs_count">
+      </div>
+
+      <div>
+        <input type="hidden" id="bookmarks_count_box" name="query_bookmarks_count">
+      </div>
+
+      <div>
+        <input type="hidden" id="employees_count_box" name="query_employees_count">
+      </div>
+
       <button>
         Create firm
       </button>
@@ -80,6 +92,8 @@
           Notes
         </th>
 
+        <!--
+
         <th>
           Jobs count
         </th>
@@ -92,8 +106,8 @@
           Employees count
         </th>
 
-        <th>
-        </th>
+        -->
+
       </tr>
 
       <% @list_of_firms.each do |a_firm| %>
@@ -120,6 +134,8 @@
           <%= a_firm.notes %>
         </td>
 
+        <!--
+
         <td>
           <%= a_firm.jobs_count %>
         </td>
@@ -132,17 +148,48 @@
           <%= a_firm.employees_count %>
         </td>
 
-        <td>
-          <a href="/bookmarks">
-            Add Bookmark
-          </a>
-        </td>
+        -->
+
 
         <td>
-          <a href="/employees">
-            Add Employee
-          </a>
+
+    <% if (Bookmark.where( :firm_id => a_firm.id, :user_id => @current_user.id)).count == 0 %>
+
+          <form action="/insert_bookmark" method="post">
+            <div>
+              <input type=hidden id="firm_id_box" name="query_firm_id" value= <%=a_firm.id%>>
+            </div>
+
+            <div>
+              <input type = hidden id="user_id_box" name="query_user_id" value= "<%= @current_user.id%>">
+            </div>
+
+            <div>
+              <input type="hidden" id="notes_box" name="query_notes" value="test">
+            </div>
+
+            <button>
+              Create bookmark
+            </button>
+          </form>
+
+    <% else %>
+
+            <button>
+              <a href="/bookmarks/<%=(Bookmark.where( :firm_id => a_firm.id, :user_id => @current_user.id)).first.id%>"> 
+
+                View Bookmark
+
+
+
+              </a>
+            </button>
+    <% end %>
+
+
+
         </td>
+
       </tr>
       <% end %>
     </table>

@@ -164,10 +164,6 @@
               <input type = hidden id="user_id_box" name="query_user_id" value= "<%= @current_user.id%>">
             </div>
 
-            <div>
-              <input type="hidden" id="notes_box" name="query_notes" value="test">
-            </div>
-
             <button>
               Create bookmark
             </button>
@@ -175,15 +171,11 @@
 
     <% else %>
 
-            <button>
               <a href="/bookmarks/<%=(Bookmark.where( :firm_id => a_firm.id, :user_id => @current_user.id)).first.id%>"> 
 
                 View Bookmark
 
-
-
               </a>
-            </button>
     <% end %>
 
 

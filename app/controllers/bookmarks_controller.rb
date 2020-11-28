@@ -27,7 +27,7 @@ class BookmarksController < ApplicationController
     the_bookmark = Bookmark.new
     the_bookmark.firm_id = params.fetch("query_firm_id")
     the_bookmark.user_id = params.fetch("query_user_id")
-    the_bookmark.notes = params.fetch("query_notes")
+    #the_bookmark.notes = params.fetch("query_notes")
 
     if the_bookmark.valid?
       the_bookmark.save

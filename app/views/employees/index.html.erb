@@ -94,11 +94,47 @@
           <%= an_employee.connections_count %>
         </td>
 
-        <td>
-          <a href="/contacts">
-            Add as Contact
-          </a>
-        </td>
+    <td>
+    <% if (Bookmark.where( :firm_id => an_employee.firm_id, :user_id => @current_user.id)).count == 0 %>
+
+    Bookmark company to add
+
+    <%else%>
+
+      <% if (Contact.where( :employee_id => an_employee.id, :user_id => @current_user.id)).count == 0 %>
+
+            <form action="/insert_contact" method="post">
+              <div>
+                <input type=hidden id="employee_id_box" name="query_employee_id" value= <%=an_employee.id%>>
+              </div>
+
+              <div>
+                <input type = hidden id="user_id_box" name="query_user_id" value= <%= @current_user.id%>>
+              </div>
+
+              <div>
+                <input type="hidden" id="bookmark_id_box" name="query_bookmark_id" 
+                  value=<%= Bookmark.where( :firm_id => an_employee.firm_id, :user_id => @current_user.id).first.id%>>
+              </div>
+
+              <button>
+                Add Contact
+              </button>
+            </form>
+
+      <% else %>
+
+             
+                <a href="/contacts/<%=(Contact.where( :employee_id => an_employee.id, :user_id => @current_user.id)).first.id%>"> 
+                  View Contact
+
+                </a>
+             
+      <% end %>
+    <%end%>  
+
+    </td>
+
       </tr>
       <% end %>
     </table>

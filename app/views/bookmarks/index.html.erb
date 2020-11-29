@@ -27,7 +27,7 @@
 
 
             <button>
-              Create bookmark
+              Add
             </button>
           </form>
   </div>
@@ -171,15 +171,11 @@
         </th>
 
         <th>
-          Jobs count
+          My Contacts
         </th>
 
         <th>
-          Bookmarks count
-        </th>
-
-        <th>
-          Employees count
+          My Jobs
         </th>
 
         <th>
@@ -211,21 +207,12 @@
         </td>
 
         <td>
-          <%= a_firm.firm.jobs_count %>
+          <%= Contact.where( :bookmark_id => a_firm.id, :user_id => @current_user.id).count %>
+
         </td>
 
         <td>
-          <%= a_firm.firm.bookmarks_count %>
-        </td>
-
-        <td>
-          <%= a_firm.firm.employees_count %>
-        </td>
-
-        <td>
-          <a href="/contacts">
-            Add Contact
-          </a>
+          <%= Job.where( :bookmark_id => a_firm.id, :user_id => @current_user.id).count %>
         </td>
       </tr>
       <% end %>

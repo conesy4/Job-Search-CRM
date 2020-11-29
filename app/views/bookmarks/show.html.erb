@@ -281,6 +281,54 @@
     <h2>
       Jobs
     </h2>
+
+              <form action="/insert_job" method="post">
+                <div>
+                  <label for="Role_box">
+                    Add Role
+                  </label>
+
+                  <input type = text id="user_id_box" name="query_role" placeholder= "job title">
+          
+                  <input type = hidden id="user_id_box" name="query_user_id" value= <%= @current_user.id%>>
+
+                  <input type="hidden" id="bookmark_id_box" name="query_bookmark_id" value=<%= @the_bookmark.id%>>
+                  
+                 <input type="hidden" id="firm_id_box" name="query_firm_id" value=<%= @the_bookmark.firm_id%>>
+
+                </div>
+
+                <div>
+                  <label for="location_box">
+                    Location
+                  </label>
+
+                  <input type="text" id="location_box" name="query_location">
+                </div>
+
+                <div>
+                  <label for="notes_box">
+                    Notes
+                  </label>
+
+                  <input type="text" id="notes_box" name="query_notes">
+                </div>
+
+                <div>
+                  <label for="application_deadline_box">
+                    Application deadline
+                  </label>
+
+                  <input type="date" id="application_deadline_box" name="query_application_deadline">
+                </div>
+
+                <button>
+                  Add Job
+                </button>
+            
+              </form>
+
+
     <table>
       <tr>
         <th>

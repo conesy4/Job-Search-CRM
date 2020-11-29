@@ -62,7 +62,7 @@
 
         <div>
 
-        <input type="text" id="notes_box" name="query_notes" value="<%= @the_bookmark.notes %>">
+        <textarea rows="3" cols="50" type="text" id="notes_box" name="query_notes" value="<%= @the_bookmark.notes %>"><%= @the_bookmark.notes %></textarea>
       
 
         <button>
@@ -124,24 +124,9 @@
 
     <table>
       <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Employee
-        </th>
 
         <th>
           Name
-        </th>
-
-        <th>
-          Firm
         </th>
 
         <th>
@@ -149,23 +134,15 @@
         </th>
 
         <th>
-          Alumni
-        </th>
-
-        <th>
-          Linkedin
-        </th>
-
-        <th>
           Email
-        </th>
-        
-        <th>
-          Notes
         </th>
 
         <th>
           Relationship
+        </th>
+
+        <th>
+          # comms
         </th>
 
         <th>
@@ -181,14 +158,6 @@
         </th>
 
         <th>
-          Communications count
-        </th>
-
-        <th>
-          Advocates count
-        </th>
-
-        <th>
         </th>
       </tr>
 
@@ -197,27 +166,9 @@
       <tr>
 
         <td>
-          <%= a_contact.id %>
-        </td>
-
-        <td>
-          <%= a_contact.user_id %>
-        </td>
-
-        <td>
-          <%= a_contact.employee_id %>
-        </td>
-
-        <td>
-          <a href="/employees/<%= a_contact.employee.id %>">
+          <a href="/contacts/<%= a_contact.id %>">
             <%= a_contact.employee.first_name %> <%= a_contact.employee.last_name %>
            </a> 
-        </td>
-
-        <td>
-          <a href="/firms/<%= a_contact.employee.firm.id %>">
-            <%= a_contact.employee.firm.name %>
-          </a>
         </td>
 
         <td>
@@ -225,23 +176,15 @@
         </td>
 
         <td>
-          <%= a_contact.employee.alumni %>
-        </td>
-
-        <td>
-          <%= a_contact.employee.linkedin %>
-        </td>
-
-        <td>
           <%= a_contact.employee.email %>
         </td>
 
         <td>
-          <%= a_contact.notes %>
+          <%= a_contact.relationship %>
         </td>
 
         <td>
-          <%= a_contact.relationship %>
+          <%= a_contact.communications_count %>
         </td>
 
         <td>
@@ -256,19 +199,6 @@
           <%= a_contact.followup_date %>
         </td>
 
-        <td>
-          <%= a_contact.communications_count %>
-        </td>
-
-        <td>
-          <%= a_contact.advocates_count %>
-        </td>
-
-        <td>
-          <a href="/contacts/<%= a_contact.id %>">
-            Show details
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>
@@ -328,17 +258,10 @@
             
               </form>
 
+<hr>
 
     <table>
       <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          Firm
-        </th>
-
         <th>
           Role
         </th>
@@ -352,69 +275,35 @@
         </th>
 
         <th>
-          Application deadline
+          Deadline
         </th>
 
         <th>
-          Applied
+          Applied date
         </th>
 
         <th>
-          Application date
+          App Status
         </th>
 
         <th>
-          Application status
+          App Outcome
         </th>
 
         <th>
-          Application mode
-        </th>
-
-        <th>
-          Application outcome
-        </th>
-
-        <th>
-          Application next steps
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Communications count
-        </th>
-
-        <th>
-          Advocates count
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Next steps
         </th>
 
         <th>
         </th>
       </tr>
 
-      <% @the_bookmark.firm.jobs.each do |a_job| %>
+      <% @list_of_jobs.each do |a_job| %>
       <tr>
         <td>
-          <%= a_job.id %>
-        </td>
-
-        <td>
-          <%= a_job.firm_id %>
-        </td>
-
-        <td>
-          <%= a_job.role %>
+          <a href="/jobs/<%= a_job.id %>">
+            <%= a_job.role %>
+          </a>
         </td>
 
         <td>
@@ -430,19 +319,11 @@
         </td>
 
         <td>
-          <%= a_job.applied %>
-        </td>
-
-        <td>
           <%= a_job.application_date %>
         </td>
 
         <td>
           <%= a_job.application_status %>
-        </td>
-
-        <td>
-          <%= a_job.application_mode %>
         </td>
 
         <td>
@@ -453,30 +334,6 @@
           <%= a_job.application_next_steps %>
         </td>
 
-        <td>
-          <%= a_job.user_id %>
-        </td>
-
-        <td>
-          <%= a_job.communications_count %>
-        </td>
-
-        <td>
-          <%= a_job.advocates_count %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_job.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_job.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/jobs/<%= a_job.id %>">
-            Show details
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>

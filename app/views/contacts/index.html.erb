@@ -131,18 +131,6 @@
     <table>
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Employee
-        </th>
-
-        <th>
           Name
         </th>
 
@@ -155,23 +143,19 @@
         </th>
 
         <th>
-          Alumni
-        </th>
-
-        <th>
-          Linkedin
-        </th>
-
-        <th>
           Email
         </th>
-        
+
+        <th>
+          Relationship
+        </th>
+
         <th>
           Notes
         </th>
 
         <th>
-          Relationship
+          # Comms
         </th>
 
         <th>
@@ -187,14 +171,6 @@
         </th>
 
         <th>
-          Communications count
-        </th>
-
-        <th>
-          Advocates count
-        </th>
-
-        <th>
         </th>
       </tr>
 
@@ -202,25 +178,13 @@
       <tr>
 
         <td>
-          <%= a_contact.id %>
-        </td>
-
-        <td>
-          <%= a_contact.user_id %>
-        </td>
-
-        <td>
-          <%= a_contact.employee_id %>
-        </td>
-
-        <td>
-          <a href="/employees/<%= a_contact.employee.id %>">
+          <a href="/contacts/<%= a_contact.id %>">
             <%= a_contact.employee.first_name %> <%= a_contact.employee.last_name %>
            </a> 
         </td>
 
         <td>
-          <a href="/firms/<%= a_contact.employee.firm.id %>">
+          <a href="/bookmarks/<%= a_contact.bookmark_id %>">
             <%= a_contact.employee.firm.name %>
           </a>
         </td>
@@ -230,15 +194,11 @@
         </td>
 
         <td>
-          <%= a_contact.employee.alumni %>
-        </td>
-
-        <td>
-          <%= a_contact.employee.linkedin %>
-        </td>
-
-        <td>
           <%= a_contact.employee.email %>
+        </td>
+
+        <td>
+          <%= a_contact.relationship %>
         </td>
 
         <td>
@@ -246,7 +206,7 @@
         </td>
 
         <td>
-          <%= a_contact.relationship %>
+          <%= a_contact.communications_count %>
         </td>
 
         <td>
@@ -261,19 +221,6 @@
           <%= a_contact.followup_date %>
         </td>
 
-        <td>
-          <%= a_contact.communications_count %>
-        </td>
-
-        <td>
-          <%= a_contact.advocates_count %>
-        </td>
-
-        <td>
-          <a href="/contacts/<%= a_contact.id %>">
-            Show details
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>

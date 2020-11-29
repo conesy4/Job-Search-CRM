@@ -7,7 +7,7 @@ class JobsController < ApplicationController
 
     matching_jobs = Job.where({ :user_id => @current_user})
 
-    @list_of_jobs = matching_jobs.order({ :created_at => :desc })
+    @list_of_jobs = matching_jobs.order({ :application_deadline => :asc })
 
     render({ :template => "jobs/index.html.erb" })
   end
@@ -42,7 +42,7 @@ class JobsController < ApplicationController
 
     if the_job.valid?
       the_job.save
-      redirect_to("/jobs", { :notice => "Job created successfully." })
+      redirect_to("/jobs/#{the_job.id}", { :notice => "Job created successfully." })
     else
       redirect_to("/jobs", { :notice => "Job failed to create successfully." })
     end

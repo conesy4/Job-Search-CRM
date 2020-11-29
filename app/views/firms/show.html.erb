@@ -55,7 +55,7 @@
       </dd>
 
       <dt>
-        Notes
+        Details
       </dt>
       <dd>
         <%= @the_firm.notes %>
@@ -139,7 +139,7 @@
 
       <div>
         <label for="notes_box">
-          Notes
+          Details
         </label>
 
         <input type="text" id="notes_box" name="query_notes" value="<%= @the_firm.notes %>">
@@ -192,7 +192,7 @@
         </th>
 
         <th>
-          Notes
+          Details
         </th>
 
         <th>
@@ -337,19 +337,19 @@
       </div>
 
       <div>
-        <label for="linkedin_box">
-          Linkedin
-        </label>
-
-        <input type="text" id="linkedin_box" name="query_linkedin">
-      </div>
-
-      <div>
         <label for="email_box">
           Email
         </label>
 
         <input type="text" id="email_box" name="query_email">
+      </div>
+      
+      <div>
+        <label for="linkedin_box">
+          Linkedin
+        </label>
+
+        <input type="text" id="linkedin_box" name="query_linkedin">
       </div>
 
       <div>
@@ -360,10 +360,10 @@
 
       <div>
         <label for="notes_box">
-          Notes
+          Details
         </label>
 
-        <input type="text" id="notes_box" name="query_notes">
+        <textarea rows=2 cols=50 type="text" id="notes_box" name="query_notes"></textarea>
       </div>
 
       <button>

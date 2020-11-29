@@ -65,13 +65,6 @@
       </dd>
 
       <dt>
-        Notes
-      </dt>
-      <dd>
-        <%= @the_employee.notes %>
-      </dd>
-
-      <dt>
         Alumni
       </dt>
       <dd>
@@ -100,18 +93,13 @@
       </dd>
 
       <dt>
-        Created at
+        Details
       </dt>
+
       <dd>
-        <%= time_ago_in_words(@the_employee.created_at) %> ago
+        <%= @the_employee.notes %>
       </dd>
 
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_employee.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
@@ -156,14 +144,6 @@
       </div>
 
       <div>
-        <label for="notes_box">
-          Notes
-        </label>
-
-        <input type="text" id="notes_box" name="query_notes" value="<%= @the_employee.notes %>">
-      </div>
-
-      <div>
         <input type="checkbox" id="alumni_box" name="query_alumni" value="1" <%= "checked" if @the_employee.alumni %>>
 
         <label for="alumni_box">
@@ -189,6 +169,14 @@
 
       <div>
         <input type="hidden" id="connections_count_box" name="query_connections_count" value="<%= @the_employee.connections_count %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Details
+        </label>
+
+        <textarea rows=2 cols=50 type="text" id="notes_box" name="query_notes" value="<%= @the_employee.notes %>"><%=@the_employee.notes %></textarea>
       </div>
 
       <button>

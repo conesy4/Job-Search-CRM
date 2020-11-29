@@ -53,24 +53,36 @@
       </div>
 
       <div>
-        <input type="hidden" id="notes_box" name="query_notes">
-      </div>
-
-      <div>
-        <input type="hidden" id="alumni_box" name="query_alumni" value=FALSE>
-      </div>
-
-      <div>
-        <input type="hidden" id="linkedin_box" name="query_linkedin">
-      </div>
-
-      <div>
         <label for="email_box">
           Email
         </label>
 
         <input type="text" id="email_box" name="query_email">
       </div>
+      
+      <div>
+        <label for="linkedin_box">
+          Linkedin
+        </label>
+
+        <input type="text" id="linkedin_box" name="query_linkedin">
+      </div>
+
+      <div>
+        <input type="checkbox" id="alumni_box" name="query_alumni" value="1">
+
+        <label for="alumni_box">Alumni</label>
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Details
+        </label>
+
+        <textarea rows=2 cols=50 type="text" id="notes_box" name="query_notes"></textarea>
+      </div>
+
+      
 
       <button>
         Create employee
@@ -102,7 +114,7 @@
         </th>
 
         <th>
-          Notes
+          Details
         </th>
 
         <th>

@@ -26,6 +26,9 @@ class BookmarksController < ApplicationController
 
     @list_of_employees = matching_employees.order({ :last_name => :asc})
 
+    matching_jobs = Job.where({ :bookmark_id => @the_bookmark.id })
+
+    @list_of_jobs = matching_jobs.order({ :application_deadline => :asc})
 
     render({ :template => "bookmarks/show.html.erb" })
   end
@@ -38,7 +41,7 @@ class BookmarksController < ApplicationController
 
     if the_bookmark.valid?
       the_bookmark.save
-      redirect_to("/bookmarks", { :notice => "Bookmark created successfully." })
+      redirect_to("/bookmarks/#{the_bookmark.id}", { :notice => "Bookmark created successfully." })
     else
       redirect_to("/bookmarks", { :notice => "Bookmark failed to create successfully." })
     end

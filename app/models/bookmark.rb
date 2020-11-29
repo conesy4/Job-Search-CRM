@@ -3,6 +3,7 @@
 # Table name: bookmarks
 #
 #  id         :integer          not null, primary key
+#  jobs_count :integer
 #  notes      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

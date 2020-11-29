@@ -31,6 +31,7 @@ class EmployeesController < ApplicationController
     the_employee.alumni = params.fetch("query_alumni", false)
     the_employee.linkedin = params.fetch("query_linkedin")
     the_employee.email = params.fetch("query_email")
+    the_employee.created_by = @current_user.id
     #the_employee.connections_count = params.fetch("query_connections_count")
 
     if the_employee.valid?

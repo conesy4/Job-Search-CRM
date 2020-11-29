@@ -1,29 +1,17 @@
 <div>
   <div>
     <h1>
-      Job #<%= @the_job.id %> details
+      My Jobs: <%= @the_job.role %> at <%= @the_job.firm.name %>
     </h1>
-
-    <div>
-      <div>
-        <a href="/jobs">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_job/<%= @the_job.id %>">
-          Delete job
-        </a>
-      </div>
-    </div>
 
     <dl>
       <dt>
         Firm
       </dt>
       <dd>
-        <%= @the_job.firm_id %>
+        <a href= "/bookmarks/<%=@the_job.bookmark_id%>">
+          <%= @the_job.firm.name %>
+        </a>
       </dd>
 
       <dt>
@@ -55,14 +43,7 @@
       </dd>
 
       <dt>
-        Applied
-      </dt>
-      <dd>
-        <%= @the_job.applied %>
-      </dd>
-
-      <dt>
-        Application date
+        Date applied
       </dt>
       <dd>
         <%= @the_job.application_date %>
@@ -76,60 +57,12 @@
       </dd>
 
       <dt>
-        Application mode
-      </dt>
-      <dd>
-        <%= @the_job.application_mode %>
-      </dd>
-
-      <dt>
-        Application outcome
-      </dt>
-      <dd>
-        <%= @the_job.application_outcome %>
-      </dd>
-
-      <dt>
         Application next steps
       </dt>
       <dd>
         <%= @the_job.application_next_steps %>
       </dd>
 
-      <dt>
-        User
-      </dt>
-      <dd>
-        <%= @the_job.user_id %>
-      </dd>
-
-      <dt>
-        Communications count
-      </dt>
-      <dd>
-        <%= @the_job.communications_count %>
-      </dd>
-
-      <dt>
-        Advocates count
-      </dt>
-      <dd>
-        <%= @the_job.advocates_count %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_job.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_job.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
@@ -144,13 +77,6 @@
     </h2>
 
     <form action="/modify_job/<%= @the_job.id %>"  method="post" >
-      <div>
-        <label for="firm_id_box">
-          Firm
-        </label>
-
-        <input type="text" id="firm_id_box" name="query_firm_id" value="<%= @the_job.firm_id %>">
-      </div>
 
       <div>
         <label for="role_box">
@@ -185,16 +111,8 @@
       </div>
 
       <div>
-        <input type="checkbox" id="applied_box" name="query_applied" value="1" <%= "checked" if @the_job.applied %>>
-
-        <label for="applied_box">
-            Applied
-        </label>
-      </div>
-
-      <div>
         <label for="application_date_box">
-          Application date
+          Date applied
         </label>
 
         <input type="date" id="application_date_box" name="query_application_date" value="<%= @the_job.application_date %>">
@@ -209,51 +127,11 @@
       </div>
 
       <div>
-        <label for="application_mode_box">
-          Application mode
-        </label>
-
-        <input type="text" id="application_mode_box" name="query_application_mode" value="<%= @the_job.application_mode %>">
-      </div>
-
-      <div>
-        <label for="application_outcome_box">
-          Application outcome
-        </label>
-
-        <input type="text" id="application_outcome_box" name="query_application_outcome" value="<%= @the_job.application_outcome %>">
-      </div>
-
-      <div>
         <label for="application_next_steps_box">
           Application next steps
         </label>
 
         <input type="text" id="application_next_steps_box" name="query_application_next_steps" value="<%= @the_job.application_next_steps %>">
-      </div>
-
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_job.user_id %>">
-      </div>
-
-      <div>
-        <label for="communications_count_box">
-          Communications count
-        </label>
-
-        <input type="text" id="communications_count_box" name="query_communications_count" value="<%= @the_job.communications_count %>">
-      </div>
-
-      <div>
-        <label for="advocates_count_box">
-          Advocates count
-        </label>
-
-        <input type="text" id="advocates_count_box" name="query_advocates_count" value="<%= @the_job.advocates_count %>">
       </div>
 
       <button>
@@ -263,4 +141,21 @@
   </div>
 </div>
 
+<p></p>
+
+    <div>
+       <div>
+        <a href="/delete_job/<%= @the_job.id %>">
+          Delete job
+        </a>
+      </div>
+
+      <div>
+        <a href="/jobs">
+          View all jobs
+        </a>
+      </div>
+    </div>
+
 <hr>
+

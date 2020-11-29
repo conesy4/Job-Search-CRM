@@ -4,6 +4,8 @@
 #
 #  id              :integer          not null, primary key
 #  bookmarks_count :integer
+#  created_by      :string
+#  creator         :string
 #  employees_count :integer
 #  industry        :string
 #  jobs_count      :integer
@@ -31,6 +33,6 @@ class Firm < ApplicationRecord
   
   validates(:name, { :presence => true })
   
-  validates(:industry, { :inclusion => { :in => [ "Retail", "Tech", "CPG", "Consulting", "Finance", "Marketing", "Other" ] } })  
+  validates(:industry, { :inclusion => { :in => [ "Retail", "Tech", "CPG", "Consulting", "Finance", "Market Research", "Other" ] } })  
 
 end

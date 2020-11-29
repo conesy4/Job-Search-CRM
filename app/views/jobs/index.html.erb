@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all jobs
+      My Jobs
     </h1>
   </div>
 </div>
@@ -11,18 +11,26 @@
 <div>
   <div>
     <h2>
-      Add a new job
+      Add a new job 
     </h2>
+    <em>Firm must already be added to my companies</em>
+
+<p></p>
 
     <form action="/insert_job" method="post">
       <div>
-        <label for="firm_id_box">
-          Firm
+
+        <input type = hidden id="user_id_box" name="query_user_id" value= <%= @current_user.id%>>
+
+        <input type = hidden id="firm_id_box" name="query_firm_id" value= "x">
+
+        <label for="bookmark_id_box">
+          Company
         </label>
 
-        <select id="firm_id_box" name="query_firm_id">
-          <% @list_of_firms.each do |a_firm| %>
-            <option value = <%=a_firm.id%>><%=a_firm.name%></option>
+        <select id="bookmark_id_box" name="query_bookmark_id">
+          <% @list_of_bookmarks.each do |a_bookmark| %>
+            <option value = <%=a_bookmark.id%>><%=a_bookmark.firm.name%></option>
           <%end%>
         </select>
       </div>
@@ -59,56 +67,6 @@
         <input type="date" id="application_deadline_box" name="query_application_deadline">
       </div>
 
-      <div>
-        <input type="checkbox" id="applied_box" name="query_applied" value="1">
-
-        <label for="applied_box">Applied</label>
-      </div>
-
-      <div>
-        <label for="application_date_box">
-          Application date
-        </label>
-
-        <input type="date" id="application_date_box" name="query_application_date">
-      </div>
-
-      <div>
-        <label for="application_status_box">
-          Application status
-        </label>
-
-        <input type="text" id="application_status_box" name="query_application_status">
-      </div>
-
-      <div>
-        <label for="application_mode_box">
-          Application mode
-        </label>
-
-        <input type="text" id="application_mode_box" name="query_application_mode">
-      </div>
-
-      <div>
-        <label for="application_outcome_box">
-          Application outcome
-        </label>
-
-        <input type="text" id="application_outcome_box" name="query_application_outcome">
-      </div>
-
-      <div>
-        <label for="application_next_steps_box">
-          Application next steps
-        </label>
-
-        <input type="text" id="application_next_steps_box" name="query_application_next_steps">
-      </div>
-
-      <div>
-        <input type=hidden id="user_id_box" name="query_user_id" value=<%=@current_user.id%>>
-      </div>
-
       <button>
         Create job
       </button>
@@ -121,12 +79,9 @@
   <div>
     <table>
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
-          Firm
+          My Company
         </th>
 
         <th>
@@ -146,65 +101,31 @@
         </th>
 
         <th>
-          Applied
+          Date applied
         </th>
 
         <th>
-          Application date
+          App status
         </th>
 
         <th>
-          Application status
+          Next steps
         </th>
 
-        <th>
-          Application mode
-        </th>
-
-        <th>
-          Application outcome
-        </th>
-
-        <th>
-          Application next steps
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Communications count
-        </th>
-
-        <th>
-          Advocates count
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
       </tr>
 
       <% @list_of_jobs.each do |a_job| %>
       <tr>
         <td>
-          <%= a_job.id %>
+          <a href="/bookmarks/<%=a_job.bookmark_id%>"> 
+            <%= a_job.firm.name %>
+          </a>
         </td>
 
         <td>
-          <%= a_job.firm.name %>
-        </td>
-
-        <td>
+          <a href="/jobs/<%=a_job.id%>%">
           <%= a_job.role %>
+          </a>
         </td>
 
         <td>
@@ -220,10 +141,6 @@
         </td>
 
         <td>
-          <%= a_job.applied %>
-        </td>
-
-        <td>
           <%= a_job.application_date %>
         </td>
 
@@ -232,41 +149,9 @@
         </td>
 
         <td>
-          <%= a_job.application_mode %>
-        </td>
-
-        <td>
-          <%= a_job.application_outcome %>
-        </td>
-
-        <td>
           <%= a_job.application_next_steps %>
         </td>
 
-        <td>
-          <%= a_job.user.first_name %>
-        </td>
-
-        <td>
-          <%= a_job.communications_count %>
-        </td>
-
-        <td>
-          <%= a_job.advocates_count %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_job.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_job.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/jobs/<%= a_job.id %>">
-            Show details
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>

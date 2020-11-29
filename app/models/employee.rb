@@ -5,6 +5,8 @@
 #  id                :integer          not null, primary key
 #  alumni            :boolean
 #  connections_count :integer
+#  created_by        :string
+#  creator           :string
 #  email             :string
 #  first_name        :string
 #  last_name         :string

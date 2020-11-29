@@ -23,15 +23,13 @@
 
     <% else %>
 
-            <button>
+            
               <a href="/bookmarks/<%=(Bookmark.where( :firm_id => @the_firm.id, :user_id => @current_user.id)).first.id%>"> 
 
                 View My Company
 
-
-
               </a>
-            </button>
+            
 
     <%end%>
 
@@ -59,6 +57,33 @@
       </dt>
       <dd>
         <%= @the_firm.notes %>
+      </dd>
+
+      <dt>
+        # of Bookmarks
+      </dt>
+      <dd>
+        <%= @the_firm.bookmarks_count %>
+      </dd>      
+
+      <dt>
+        Employee records
+      </dt>
+      <dd>
+        <%= @the_firm.employees_count %>
+      </dd>
+
+      <dt>
+        Created By
+      </dt>
+
+      <dd>
+          <%if User.where({ :id => @the_firm.created_by}).count == 0 %>
+    
+          <%else%> 
+            <% creator = User.where({ :id => @the_firm.created_by}).first %>
+            <%= creator.first_name%> <%=creator.last_name%>
+          <%end%>
       </dd>
 
       <!--
@@ -126,7 +151,16 @@
           Industry
         </label>
 
-        <input type="text" id="industry_box" name="query_industry" value="<%= @the_firm.industry %>">
+        <select id="industry_box" name="query_industry">
+            <option value = "<%=@the_firm.industry%>"><%=@the_firm.industry%></option>
+            <option value = "Consulting">Consulting</option>
+            <option value = "CPG">CPG</option>
+            <option value = "Finance">Finance</option>
+            <option value = "Market Research">Market Research</option>
+            <option value = "Retail">Retail</option>
+            <option value = "Tech">Tech</option>
+            <option value = "Other">Other</option>
+        </select>
       </div>
 
       <div>
@@ -343,7 +377,7 @@
 
         <input type="text" id="email_box" name="query_email">
       </div>
-      
+
       <div>
         <label for="linkedin_box">
           Linkedin

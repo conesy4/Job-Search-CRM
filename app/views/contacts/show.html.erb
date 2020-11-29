@@ -4,40 +4,51 @@
       My Contact: <%= @the_contact.employee.first_name %> <%= @the_contact.employee.last_name %>
     </h1>
 
-    <div>
-      <div>
-        <a href="/contacts">
-          Go back
-        </a>
-      </div>
 
-      <div>
-        <a href="/delete_contact/<%= @the_contact.id %>">
-          Delete contact
-        </a>
-      </div>
-    </div>
+    <a href="/employees/<%=@the_contact.employee_id%>"> 
+      View Employee Master
+    </a>
+    
+    <p></p>
+ 
 
     <dl>
       <dt>
-        User
+        Firm
       </dt>
+
       <dd>
-        <%= @the_contact.user_id %>
+        <a href="/bookmarks/<%= @the_contact.bookmark.id %>">
+          <%= @the_contact.firm.name %>
+        </a>
       </dd>
 
       <dt>
-        Employee
+        Role
       </dt>
       <dd>
-        <%= @the_contact.employee_id %>
+        <%= @the_contact.employee.role %>
       </dd>
 
       <dt>
-        Notes
+        Alumni
       </dt>
       <dd>
-        <%= @the_contact.notes %>
+        <%= @the_contact.employee.alumni %>
+      </dd>
+
+      <dt>
+        Linkedin
+      </dt>
+      <dd>
+        <%= @the_contact.employee.linkedin %>
+      </dd>
+
+      <dt>
+        Email
+      </dt>
+      <dd>
+        <%= @the_contact.employee.email %>
       </dd>
 
       <dt>
@@ -47,6 +58,21 @@
         <%= @the_contact.relationship %>
       </dd>
 
+      <dt>
+        Followup date
+      </dt>
+      <dd>
+        <%= @the_contact.followup_date %>
+      </dd>     
+      
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_contact.notes %>
+      </dd> 
+
+<!--
       <dt>
         Outgoing comms
       </dt>
@@ -76,13 +102,6 @@
       </dd>
 
       <dt>
-        Followup date
-      </dt>
-      <dd>
-        <%= @the_contact.followup_date %>
-      </dd>
-
-      <dt>
         Communications count
       </dt>
       <dd>
@@ -109,6 +128,7 @@
       <dd>
         <%= time_ago_in_words(@the_contact.updated_at) %> ago
       </dd>
+-->
     </dl>
   </div>
 </div>
@@ -123,29 +143,6 @@
     </h2>
 
     <form action="/modify_contact/<%= @the_contact.id %>"  method="post" >
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_contact.user_id %>">
-      </div>
-
-      <div>
-        <label for="employee_id_box">
-          Employee
-        </label>
-
-        <input type="text" id="employee_id_box" name="query_employee_id" value="<%= @the_contact.employee_id %>">
-      </div>
-
-      <div>
-        <label for="notes_box">
-          Notes
-        </label>
-
-        <input type="text" id="notes_box" name="query_notes" value="<%= @the_contact.notes %>">
-      </div>
 
       <div>
         <label for="relationship_box">
@@ -156,43 +153,21 @@
       </div>
 
       <div>
-        <label for="outgoing_comms_box">
-          Outgoing comms
-        </label>
-
-        <input type="text" id="outgoing_comms_box" name="query_outgoing_comms" value="<%= @the_contact.outgoing_comms %>">
-      </div>
-
-      <div>
-        <label for="incoming_comms_box">
-          Incoming comms
-        </label>
-
-        <input type="text" id="incoming_comms_box" name="query_incoming_comms" value="<%= @the_contact.incoming_comms %>">
-      </div>
-
-      <div>
-        <label for="last_outgoing_comm_box">
-          Last outgoing comm
-        </label>
-
-        <input type="date" id="last_outgoing_comm_box" name="query_last_outgoing_comm" value="<%= @the_contact.last_outgoing_comm %>">
-      </div>
-
-      <div>
-        <label for="last_incoming_comm_box">
-          Last incoming comm
-        </label>
-
-        <input type="date" id="last_incoming_comm_box" name="query_last_incoming_comm" value="<%= @the_contact.last_incoming_comm %>">
-      </div>
-
-      <div>
         <label for="followup_date_box">
           Followup date
         </label>
 
         <input type="date" id="followup_date_box" name="query_followup_date" value="<%= @the_contact.followup_date %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea rows=2 cols=50 type="text" id="notes_box" name="query_notes">
+          <%=@the_contact.notes%>
+        </textarea>
       </div>
 
       <button>
@@ -202,113 +177,22 @@
   </div>
 </div>
 
-<hr>
+<p></p>
 
-<hr>
-<div>
-  <div>
+    <div>
 
-  <h2> 
-    Communications
-  </h2>
+      <div>
+        <a href="/delete_contact/<%= @the_contact.id %>">
+          Delete contact
+        </a>
+      </div>
 
-    <table>
-      <tr>
-        <th>
-          ID
-        </th>
+      <div>
+        <a href="/contacts">
+         View all my contacts
+        </a>
+      </div>
 
-        <th>
-          Contact
-        </th>
-
-        <th>
-          Job
-        </th>
-
-        <th>
-          Date
-        </th>
-
-        <th>
-          Comm type
-        </th>
-
-        <th>
-          Outgoing
-        </th>
-
-        <th>
-          Incoming
-        </th>
-
-        <th>
-          Notes
-        </th>
-
-        <th>
-          Followup date
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @the_contact.communications.each do |a_communication| %>
-      <tr>
-        <td>
-          <%= a_communication.id %>
-        </td>
-
-        <td>
-          <%= a_communication.contact_id %>
-        </td>
-
-        <td>
-          <%= a_communication.job_id %>
-        </td>
-
-        <td>
-          <%= a_communication.date %>
-        </td>
-
-        <td>
-          <%= a_communication.comm_type %>
-        </td>
-
-        <td>
-          <%= a_communication.outgoing %>
-        </td>
-
-        <td>
-          <%= a_communication.incoming %>
-        </td>
-
-        <td>
-          <%= a_communication.notes %>
-        </td>
-
-        <td>
-          <%= a_communication.followup_date %>
-        </td>
-
-        <td>
-          <%= a_communication.user_id %>
-        </td>
-
-        <td>
-          <a href="/communications/<%= a_communication.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-
+    </div>
+    
 <hr>

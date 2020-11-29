@@ -4,7 +4,8 @@ class FirmsController < ApplicationController
 
     @list_of_firms = matching_firms.order({ :name => :asc })
 
-    render({ :template => "firms/index.html.erb" })
+    render({ :template => "firms/index.html.erb" })  
+    
   end
 
   def show
@@ -31,6 +32,8 @@ class FirmsController < ApplicationController
     the_firm.jobs_count = params.fetch("query_jobs_count")
     the_firm.bookmarks_count = params.fetch("query_bookmarks_count")
     the_firm.employees_count = params.fetch("query_employees_count")
+    the_firm.created_by = @current_user.id
+    
 
     if the_firm.valid?
       the_firm.save
@@ -48,9 +51,9 @@ class FirmsController < ApplicationController
     the_firm.location = params.fetch("query_location")
     the_firm.name = params.fetch("query_name")
     the_firm.notes = params.fetch("query_notes")
-    the_firm.jobs_count = params.fetch("query_jobs_count")
-    the_firm.bookmarks_count = params.fetch("query_bookmarks_count")
-    the_firm.employees_count = params.fetch("query_employees_count")
+    #the_firm.jobs_count = params.fetch("query_jobs_count")
+    #the_firm.bookmarks_count = params.fetch("query_bookmarks_count")
+    #the_firm.employees_count = params.fetch("query_employees_count")
 
     if the_firm.valid?
       the_firm.save

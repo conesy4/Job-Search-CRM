@@ -4,7 +4,11 @@
       My Company: <%= @the_bookmark.firm.name %>
     </h1>
 
+    <a href="/firms/<%=@the_bookmark.firm_id%>"> 
+      View Firm Master
+    </a>
 
+<p></p>
     <dl>
       <dt>
         Industry
@@ -142,6 +146,10 @@
         </th>
 
         <th>
+          Notes
+        </th>
+<!--
+        <th>
           # comms
         </th>
 
@@ -156,7 +164,7 @@
         <th>
           Followup date
         </th>
-
+-->
         <th>
         </th>
       </tr>
@@ -184,6 +192,10 @@
         </td>
 
         <td>
+          <%= a_contact.notes %>
+        </td>
+<!--
+        <td>
           <%= a_contact.communications_count %>
         </td>
 
@@ -198,7 +210,7 @@
         <td>
           <%= a_contact.followup_date %>
         </td>
-
+-->
       </tr>
       <% end %>
     </table>
@@ -279,7 +291,7 @@
         </th>
 
         <th>
-          Applied date
+          Date applied
         </th>
 
         <th>
@@ -287,15 +299,9 @@
         </th>
 
         <th>
-          App Outcome
-        </th>
-
-        <th>
           Next steps
         </th>
 
-        <th>
-        </th>
       </tr>
 
       <% @list_of_jobs.each do |a_job| %>
@@ -324,10 +330,6 @@
 
         <td>
           <%= a_job.application_status %>
-        </td>
-
-        <td>
-          <%= a_job.application_outcome %>
         </td>
 
         <td>

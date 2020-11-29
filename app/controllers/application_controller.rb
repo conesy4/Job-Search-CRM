@@ -32,8 +32,12 @@ class ApplicationController < ActionController::Base
 
     @list_of_communications = matching_communications.order({ :created_at => :desc })
 
+    matching_firms = Firm.all
+
+    @list_of_firms = matching_firms.order({ :name => :asc })
+
+    redirect_to("/bookmarks") 
     
-    render({ :template => "home.html.erb" })
   end
 
 end

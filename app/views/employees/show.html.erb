@@ -33,12 +33,11 @@
 
       <% else %>
 
-              <button>
+              
                 <a href="/contacts/<%=(Contact.where( :employee_id => @the_employee.id, :user_id => @current_user.id)).first.id%>"> 
-                  View Contact
-
+                  View My Contact
                 </a>
-              </button>
+              
       <% end %>
     <%end%>  
 
@@ -99,6 +98,19 @@
       <dd>
         <%= @the_employee.notes %>
       </dd>
+
+      <dt>
+        Created by
+      </dt>
+
+      <dd>
+          <%if User.where({ :id => @the_employee.created_by}).count == 0 %>
+    
+          <%else%> 
+            <% creator = User.where({ :id => @the_employee.created_by}).first %>
+            <%= creator.first_name%> <%=creator.last_name%>
+          <%end%>
+      </dd>      
 
     </dl>
   </div>

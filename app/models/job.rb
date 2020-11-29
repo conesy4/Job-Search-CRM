@@ -45,6 +45,6 @@ class Job < ApplicationRecord
   
   validates(:firm_id, { :presence => true })
 
-  #validates(:bookmark_id, { :presence => true })
+  validates(:bookmark_id, { :presence => true })
 
 end

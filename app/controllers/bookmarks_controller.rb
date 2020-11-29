@@ -18,9 +18,16 @@ class BookmarksController < ApplicationController
 
     @the_bookmark = matching_bookmarks.at(0)
 
-#    matching_contacts = Contacts.where({ :firm_id => @the_bookmark.firm_id })
+    matching_contacts = Contact.where({ :bookmark_id => @the_bookmark.id })
 
-#    render({ :template => "bookmarks/show.html.erb" })
+    @list_of_contacts = matching_contacts.order({ :last_name => :asc})
+
+    matching_employees = Employee.where({ :firm_id => @the_bookmark.firm_id })
+
+    @list_of_employees = matching_employees.order({ :last_name => :asc})
+
+
+    render({ :template => "bookmarks/show.html.erb" })
   end
 
   def create

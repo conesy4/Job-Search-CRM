@@ -4,21 +4,6 @@
       My Company: <%= @the_bookmark.firm.name %>
     </h1>
 
-    <div>
-      <div>
-        <a href="/bookmarks">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_bookmark/<%= @the_bookmark.id %>">
-          Delete bookmark
-        </a>
-      </div>
-    </div>
-
-    <dl>
 
     <dl>
       <dt>
@@ -41,8 +26,6 @@
       <dd>
         <%= @the_bookmark.firm.jobs_count %>
       </dd>
-
-<hr>
 
       <dt>
         Notes
@@ -88,6 +71,23 @@
         </div>
       </div>
     </form>
+
+    <p></p>
+
+
+    <div>
+      <!--<div>
+        <a href="/bookmarks">
+          Go back
+        </a>
+      </div>-->
+
+      <div>
+        <a href="/delete_bookmark/<%= @the_bookmark.id %>">
+          Delete bookmark
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -98,6 +98,30 @@
     <h2>
       Contacts
     </h2>
+  
+              <form action="/insert_contact" method="post">
+                <div>
+                  <label for="employee_id_box">
+                    Employee
+                  </label>
+
+                  <select id="employee_id_box" name="query_employee_id">
+                    <% @list_of_employees.each do |an_employee| %>
+                      <option value = <%=an_employee.id%>><%=an_employee.first_name%> <%=an_employee.last_name%></option>
+                    <%end%>
+                  </select>
+
+                  <input type = hidden id="user_id_box" name="query_user_id" value= <%= @current_user.id%>>
+
+                  <input type="hidden" id="bookmark_id_box" name="query_bookmark_id" 
+                    value=<%= @the_bookmark.id%>>
+
+                <button>
+                  Add Contact
+                </button>
+                </div>
+              </form>
+
     <table>
       <tr>
         <th>
@@ -169,7 +193,7 @@
       </tr>
 
 
-    <% @the_bookmark.firm.connections.each do |a_contact| %>
+    <% @list_of_contacts.each do |a_contact| %>
       <tr>
 
         <td>

@@ -8,6 +8,33 @@
 
 <hr>
 
+<div>
+  <div>
+          <form action="/insert_bookmark" method="post">
+
+            <label for="firm_id_box">
+              Add company:
+            </label>
+        
+            <select id="firm_id_box" name="query_firm_id" placeholder = "select firm">
+              <!--<option value="" disabled selected>Select firm</option>-->
+              <% @list_of_firms.each do |a_firm| %>
+                <option value = <%=a_firm.id%>><%=a_firm.name%></option>
+              <%end%>
+            </select>
+
+            <input type = hidden id="user_id_box" name="query_user_id" value= "<%= @current_user.id%>">
+
+
+            <button>
+              Create bookmark
+            </button>
+          </form>
+  </div>
+</div>
+
+<hr>
+
 <!--
 <div>
   <div>

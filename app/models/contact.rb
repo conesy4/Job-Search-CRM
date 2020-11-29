@@ -42,6 +42,6 @@ class Contact < ApplicationRecord
   
   validates(:employee_id, { :presence => true })
 
-  #validates(:employee_id, { :uniqueness => { :scope => ["bookmark_id"], :message => "Already added" } })
+  validates(:employee_id, { :uniqueness => { :scope => ["bookmark_id"], :message => "Already added" } })
 
 end

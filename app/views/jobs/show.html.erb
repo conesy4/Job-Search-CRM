@@ -29,6 +29,15 @@
       </dd>
 
       <dt>
+        Website
+      </dt>
+      <dd>
+        <a href="http://<%= @the_job.website %>" target="_blank"> 
+          <%= @the_job.website %>
+        </a>
+      </dd>   
+
+      <dt>
         Notes
       </dt>
       <dd>
@@ -92,6 +101,14 @@
         </label>
 
         <input type="text" id="location_box" name="query_location" value="<%= @the_job.location %>">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_job.website %>"">
       </div>
 
       <div>

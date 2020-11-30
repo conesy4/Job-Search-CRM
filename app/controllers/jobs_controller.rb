@@ -39,6 +39,7 @@ class JobsController < ApplicationController
     the_job.firm_id = firm_id
     the_job.role = params.fetch("query_role")
     the_job.location = params.fetch("query_location")
+    the_job.website = params.fetch("query_website")
     the_job.notes = params.fetch("query_notes")
     the_job.application_deadline = params.fetch("query_application_deadline")
     #the_job.applied = params.fetch("query_applied", false)
@@ -66,6 +67,7 @@ class JobsController < ApplicationController
     #the_job.firm_id = params.fetch("query_firm_id")
     the_job.role = params.fetch("query_role")
     the_job.location = params.fetch("query_location")
+    the_job.website = params.fetch("query_website")
     the_job.notes = params.fetch("query_notes")
     the_job.application_deadline = params.fetch("query_application_deadline")
     #the_job.applied = params.fetch("query_applied", false)

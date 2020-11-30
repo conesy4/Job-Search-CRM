@@ -12,6 +12,7 @@
 #  location        :string
 #  name            :string
 #  notes           :string
+#  website         :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #

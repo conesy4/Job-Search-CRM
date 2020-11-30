@@ -71,10 +71,12 @@
       </dd>
 
       <dt>
-        Linkedin
+        Linkedin link
       </dt>
       <dd>
-        <%= @the_employee.linkedin %>
+        <a href="http://<%= @the_employee.linkedin %>" target="_blank">
+          <%= @the_employee.linkedin %>
+        </a>
       </dd>
 
       <dt>
@@ -165,7 +167,7 @@
 
       <div>
         <label for="linkedin_box">
-          Linkedin
+          Linkedin link
         </label>
 
         <input type="text" id="linkedin_box" name="query_linkedin" value="<%= @the_employee.linkedin %>">

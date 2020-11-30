@@ -15,6 +15,7 @@
 #  location               :string
 #  notes                  :string
 #  role                   :string
+#  website                :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  bookmark_id            :integer

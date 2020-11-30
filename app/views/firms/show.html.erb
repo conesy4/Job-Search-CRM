@@ -53,6 +53,15 @@
       </dd>
 
       <dt>
+        Website
+      </dt>
+      <dd>
+        <a href="http://<%= @the_firm.website %>" target="_blank" > 
+          <%= @the_firm.website %>
+        </a>
+      </dd>      
+
+      <dt>
         Details
       </dt>
       <dd>
@@ -172,6 +181,14 @@
       </div>
 
       <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_firm.website %>"">
+      </div>
+
+      <div>
         <label for="notes_box">
           Details
         </label>
@@ -234,7 +251,7 @@
         </th>
 
         <th>
-          Linkedin
+          Linkedin link
         </th>
 
         <th>
@@ -274,7 +291,9 @@
         </td>
 
         <td>
-          <%= an_employee.linkedin %>
+          <a href="http://<%= an_employee.linkedin %>" target="_blank">
+            <%= an_employee.linkedin %>
+          </a>
         </td>
 
         <td>
@@ -380,7 +399,7 @@
 
       <div>
         <label for="linkedin_box">
-          Linkedin
+          Linkedin link
         </label>
 
         <input type="text" id="linkedin_box" name="query_linkedin">

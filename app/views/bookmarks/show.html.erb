@@ -25,6 +25,15 @@
       </dd>
 
       <dt>
+        Website
+      </dt>
+      <dd>
+        <a href="http://<%= @the_bookmark.firm.website %>" target="_blank"> 
+          <%= @the_bookmark.firm.website %>
+        </a>
+      </dd>    
+
+      <dt>
         Jobs count
       </dt>
       <dd>
@@ -246,6 +255,14 @@
                   </label>
 
                   <input type="text" id="location_box" name="query_location">
+                </div>
+
+                <div>
+                  <label for="website_box">
+                    Website
+                  </label>
+
+                  <input type="text" id="website_box" name="query_website">
                 </div>
 
                 <div>

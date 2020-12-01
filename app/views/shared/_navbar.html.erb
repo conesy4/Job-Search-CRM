@@ -4,6 +4,17 @@
       Home
     </a>
 
+    <%if @current_user == nil%>        
+            <a href="/sign_up" class="dropdown-item">
+              Sign up
+            </a>
+
+            <a href="/login" class="dropdown-item">
+              Log in
+            </a>
+
+<%else%>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-nav-links" aria-controls="collapsible-nav-links" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -70,13 +81,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a href="/sign_up" class="dropdown-item">
-              Sign up
-            </a>
-
-            <a href="/login" class="dropdown-item">
-              Log in
-            </a>
+            <h5><%=@current_user.first_name%> <%=@current_user.last_name%></h5> 
 
             <a href="/edit_profile" class="dropdown-item">
               Edit profile
@@ -85,7 +90,7 @@
             <a href="/logout" class="dropdown-item">
               Log out
             </a>
-
+<%end%>
           </div>
         </li>
       </ul>

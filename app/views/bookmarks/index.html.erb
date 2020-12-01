@@ -13,7 +13,7 @@
           <form action="/insert_bookmark" method="post">
 
             <label for="firm_id_box">
-              Add company:
+              Add Firm:
             </label>
         
             <select id="firm_id_box" name="query_firm_id" placeholder = "select firm">
@@ -151,10 +151,6 @@
     <table>
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
           Name
         </th>
 
@@ -183,10 +179,6 @@
       </tr>
 
       <% @list_of_bookmarks.each do |a_firm| %>
-      <tr>
-        <td>
-          <%= a_firm.firm.id %>
-        </td>
 
         <td>
           <a href="/bookmarks/<%= a_firm.id %>">

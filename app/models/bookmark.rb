@@ -12,7 +12,7 @@
 #
 class Bookmark < ApplicationRecord
 
-  has_many(:contacts, { :class_name => "Contact", :foreign_key => "bookmark_id", :dependent => :destroy })
+  has_many(:contacts, { :class_name => "Contact", :foreign_key => "bookmark_id", :dependent => :destroy :counter_cache => true})
 
   has_many(:jobs, { :class_name => "Job", :foreign_key => "bookmark_id", :dependent => :destroy })
 

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action(:load_current_user)
   
   # Uncomment this if you want to force users to sign in before any other actions
-  # before_action(:force_user_sign_in)
+  before_action(:force_user_sign_in)
   
   def load_current_user
     the_id = session[:user_id]
@@ -18,15 +18,15 @@ class ApplicationController < ActionController::Base
   def home
     matching_bookmarks = Bookmark.where({ :user_id => @current_user})
     
-    @list_of_bookmarks = matching_bookmarks.order({ :name => :asc })
+    @list_of_bookmarks = matching_bookmarks.order({ :contact_counter => :desc })
 
     matching_contacts = Contact.where({ :user_id => @current_user})
 
-    @list_of_contacts = matching_contacts.order({ :last_name => :asc })
+    @list_of_contacts = matching_contacts.order({ :followup_date => :asc })
 
     matching_jobs = Job.where({ :user_id => @current_user})
 
-    @list_of_jobs = matching_jobs.order({ :created_at => :desc })
+    @list_of_jobs = matching_jobs.order({ :application_deadline => :asc })
 
     matching_communications = Communication.where({ :user_id => @current_user})
 
@@ -36,8 +36,9 @@ class ApplicationController < ActionController::Base
 
     @list_of_firms = matching_firms.order({ :name => :asc })
 
-    redirect_to("/bookmarks") 
+    render({ :template => "home.html.erb" }) 
     
+
   end
 
 end

@@ -18,15 +18,15 @@ class ApplicationController < ActionController::Base
   def home
     matching_bookmarks = Bookmark.where({ :user_id => @current_user})
     
-    @list_of_bookmarks = matching_bookmarks.order({ :contact_counter => :desc })
+    @list_of_bookmarks = matching_bookmarks.order({ :contacts_count => :desc })
 
     matching_contacts = Contact.where({ :user_id => @current_user})
 
-    @list_of_contacts = matching_contacts.order({ :followup_date => :asc })
+    @list_of_contacts = matching_contacts.order({ :followup_date => :desc })
 
     matching_jobs = Job.where({ :user_id => @current_user})
 
-    @list_of_jobs = matching_jobs.order({ :application_deadline => :asc })
+    @list_of_jobs = matching_jobs.order({ :application_deadline => :desc })
 
     matching_communications = Communication.where({ :user_id => @current_user})
 

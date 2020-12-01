@@ -28,7 +28,7 @@ class Contact < ApplicationRecord
   
   belongs_to(:employee, { :required => false, :class_name => "Employee", :foreign_key => "employee_id", :counter_cache => :connections_count })
   
-  belongs_to(:bookmark, { :required => false, :class_name => "Bookmark", :foreign_key => "bookmark_id"})
+  belongs_to(:bookmark, { :required => false, :class_name => "Bookmark", :foreign_key => "bookmark_id",  :counter_cache => true})
   
   #Add Indirect Associations (Guide)
   

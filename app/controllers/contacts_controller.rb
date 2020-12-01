@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
 
     matching_contacts = Contact.where({ :user_id => @current_user})
 
-    @list_of_contacts = matching_contacts.order({ :last_name => :asc })
+    @list_of_contacts = matching_contacts.order({ :followup_date => :desc })
 
     render({ :template => "contacts/index.html.erb" })
 

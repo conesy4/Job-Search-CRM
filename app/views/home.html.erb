@@ -8,7 +8,7 @@
 
 
 <div>
-First five <a href="/bookmarks/">View All/Create New</a>
+(first five by contacts count) <a href="/bookmarks/">View All/Create New</a>
 </div>
 
 <p></p>
@@ -66,7 +66,7 @@ First five <a href="/bookmarks/">View All/Create New</a>
         </td>
 
         <td>
-          <%= Contact.where( :bookmark_id => a_firm.id, :user_id => @current_user.id).count %>
+          <%= a_firm.contacts_count %>
 
         </td>
 
@@ -90,7 +90,7 @@ First five <a href="/bookmarks/">View All/Create New</a>
 </div>
 
 <div>
-<a href="/contacts/">View All</a> <em>(create new contacts off My Company record)</em>
+(first five by application date) <a href="/contacts/">View All</a> <em>(create new contacts off My Company record)</em>
 </div>
 
 <p></p>
@@ -185,7 +185,7 @@ First five <a href="/bookmarks/">View All/Create New</a>
 </div>
 
 <div>
-<a href="/jobs/">View All/Create New</a>
+(first five) <a href="/jobs/">View All/Create New</a>
 </div>
 
 <p></p>

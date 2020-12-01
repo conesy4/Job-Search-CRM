@@ -2,17 +2,18 @@
 #
 # Table name: bookmarks
 #
-#  id         :integer          not null, primary key
-#  jobs_count :integer
-#  notes      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  firm_id    :integer
-#  user_id    :integer
+#  id             :integer          not null, primary key
+#  contacts_count :integer
+#  jobs_count     :integer
+#  notes          :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  firm_id        :integer
+#  user_id        :integer
 #
 class Bookmark < ApplicationRecord
 
-  has_many(:contacts, { :class_name => "Contact", :foreign_key => "bookmark_id", :dependent => :destroy :counter_cache => true})
+  has_many(:contacts, { :class_name => "Contact", :foreign_key => "bookmark_id", :dependent => :destroy})
 
   has_many(:jobs, { :class_name => "Job", :foreign_key => "bookmark_id", :dependent => :destroy })
 

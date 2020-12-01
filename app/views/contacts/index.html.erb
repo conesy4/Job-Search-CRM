@@ -127,6 +127,9 @@
 </div>
 
 -->
+
+<h3>Upcoming Followup Dates</h3>
+
 <div>
   <div>
     <table>
@@ -176,7 +179,228 @@
 
       </tr>
 
-      <% @list_of_contacts.each do |a_contact| %>
+      <% @list_of_contacts_upcoming.each do |a_contact| %>
+      <tr>
+
+        <td>
+          <a href="/contacts/<%= a_contact.id %>">
+            <%= a_contact.employee.first_name %> <%= a_contact.employee.last_name %>
+           </a> 
+        </td>
+
+        <td>
+          <a href="/bookmarks/<%= a_contact.bookmark_id %>">
+            <%= a_contact.employee.firm.name %>
+          </a>
+        </td>
+
+        <td>
+          <%= a_contact.employee.role %>
+        </td>
+
+        <td>
+          <%= a_contact.employee.email %>
+        </td>
+
+        <td>
+          <%= a_contact.relationship %>
+        </td>
+
+        <td>
+          <%= a_contact.notes %>
+        </td>
+
+<!--
+
+        <td>
+          <%= a_contact.communications_count %>
+        </td>
+
+        <td>
+          <%= a_contact.last_outgoing_comm %>
+        </td>
+
+        <td>
+          <%= a_contact.last_incoming_comm %>
+        </td>
+-->
+
+        <td>
+          <%= a_contact.followup_date %>
+        </td>
+
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<h3>Past Followup Dates</h3>
+
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          Name
+        </th>
+
+        <th>
+          My Company
+        </th>
+
+        <th>
+          Role
+        </th>
+
+        <th>
+          Email
+        </th>
+
+        <th>
+          Relationship
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+<!--
+        <th>
+          # Comms
+        </th>
+
+        <th>
+          Last outgoing comm
+        </th>
+
+        <th>
+          Last incoming comm
+        </th>
+
+-->
+
+        <th>
+          Followup date
+        </th>
+
+      </tr>
+
+      <% @list_of_contacts_past.each do |a_contact| %>
+      <tr>
+
+        <td>
+          <a href="/contacts/<%= a_contact.id %>">
+            <%= a_contact.employee.first_name %> <%= a_contact.employee.last_name %>
+           </a> 
+        </td>
+
+        <td>
+          <a href="/bookmarks/<%= a_contact.bookmark_id %>">
+            <%= a_contact.employee.firm.name %>
+          </a>
+        </td>
+
+        <td>
+          <%= a_contact.employee.role %>
+        </td>
+
+        <td>
+          <%= a_contact.employee.email %>
+        </td>
+
+        <td>
+          <%= a_contact.relationship %>
+        </td>
+
+        <td>
+          <%= a_contact.notes %>
+        </td>
+
+<!--
+
+        <td>
+          <%= a_contact.communications_count %>
+        </td>
+
+        <td>
+          <%= a_contact.last_outgoing_comm %>
+        </td>
+
+        <td>
+          <%= a_contact.last_incoming_comm %>
+        </td>
+-->
+
+        <td>
+          <%= a_contact.followup_date %>
+        </td>
+
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+
+<hr>
+
+<h3>All Contacts</h3>
+
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          Name
+        </th>
+
+        <th>
+          My Company
+        </th>
+
+        <th>
+          Role
+        </th>
+
+        <th>
+          Email
+        </th>
+
+        <th>
+          Relationship
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+<!--
+        <th>
+          # Comms
+        </th>
+
+        <th>
+          Last outgoing comm
+        </th>
+
+        <th>
+          Last incoming comm
+        </th>
+
+-->
+
+        <th>
+          Followup date
+        </th>
+
+      </tr>
+
+      <% @list_of_contacts_all.each do |a_contact| %>
       <tr>
 
         <td>

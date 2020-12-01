@@ -83,6 +83,9 @@
 </div>
 
 <hr>
+
+<h3>Jobs: to apply</h3>
+
 <div>
   <div>
     <table>
@@ -123,6 +126,93 @@
       </tr>
 
       <% @list_of_jobs.each do |a_job| %>
+      <tr>
+        <td>
+          <a href="/bookmarks/<%=a_job.bookmark_id%>"> 
+            <%= a_job.firm.name %>
+          </a>
+        </td>
+
+        <td>
+          <a href="/jobs/<%=a_job.id%>%">
+          <%= a_job.role %>
+          </a>
+        </td>
+
+        <td>
+          <%= a_job.location %>
+        </td>
+
+        <td>
+          <%= a_job.notes %>
+        </td>
+
+        <td>
+          <%= a_job.application_deadline %>
+        </td>
+
+        <td>
+          <%= a_job.application_date %>
+        </td>
+
+        <td>
+          <%= a_job.application_status %>
+        </td>
+
+        <td>
+          <%= a_job.application_next_steps %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<h3>Jobs: applied </h3>
+
+<div>
+  <div>
+    <table>
+      <tr>
+
+        <th>
+          My Company
+        </th>
+
+        <th>
+          Role
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Application deadline
+        </th>
+
+        <th>
+          Date applied
+        </th>
+
+        <th>
+          App status
+        </th>
+
+        <th>
+          Next steps
+        </th>
+
+      </tr>
+
+      <% @list_of_jobs_applied.each do |a_job| %>
       <tr>
         <td>
           <a href="/bookmarks/<%=a_job.bookmark_id%>"> 

@@ -1,5 +1,12 @@
 <div>
   <div>
+
+      <div>
+        <a href="/employees">
+          <-- View All Employees
+        </a>
+      </div>
+
     <h1>
       <%= @the_employee.first_name %> <%= @the_employee.last_name %>
     </h1>
@@ -202,12 +209,6 @@
 
 <p></p>
     <div>
-      <div>
-        <a href="/employees">
-          Go back
-        </a>
-      </div>
-
       <div>
         <a href="/delete_employee/<%= @the_employee.id %>">
           Delete employee

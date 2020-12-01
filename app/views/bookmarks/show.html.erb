@@ -1,5 +1,12 @@
 <div>
   <div>
+
+      <div>
+        <a href="/bookmarks">
+          <-- View My Companies
+        </a>
+      </div>
+
     <h1>
       My Company: <%= @the_bookmark.firm.name %>
     </h1>
@@ -96,12 +103,6 @@
 
 
     <div>
-      <!--<div>
-        <a href="/bookmarks">
-          Go back
-        </a>
-      </div>-->
-
       <div>
         <a href="/delete_bookmark/<%= @the_bookmark.id %>">
           Delete bookmark
@@ -177,10 +178,12 @@
           Last incoming comm
         </th>
 
+-->
+
         <th>
           Followup date
         </th>
--->
+
         <th>
         </th>
       </tr>
@@ -223,10 +226,12 @@
           <%= a_contact.last_incoming_comm %>
         </td>
 
+-->
+
         <td>
           <%= a_contact.followup_date %>
         </td>
--->
+
       </tr>
       <% end %>
     </table>

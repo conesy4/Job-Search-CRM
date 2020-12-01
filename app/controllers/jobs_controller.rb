@@ -11,9 +11,14 @@ class JobsController < ApplicationController
 
     matching_jobs = Job.where({ :user_id => @current_user})
 
-    @list_of_jobs = matching_jobs.order({ :application_deadline => :desc })
+    @list_of_jobs = matching_jobs.where({ :application_date => nil}).order({ :application_deadline => :desc })
+
+    @list_of_jobs_applied = matching_jobs.where.not({ :application_date => nil}).order({ :application_date => :desc })
 
     render({ :template => "jobs/index.html.erb" })
+
+
+    
   end
 
   def show

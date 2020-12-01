@@ -4,9 +4,17 @@ class ContactsController < ApplicationController
     
     @list_of_bookmarks = matching_bookmarks.order({ :name => :asc })
 
+    #matching_contacts = Contact.where({ :user_id => @current_user})
+
     matching_contacts = Contact.where({ :user_id => @current_user})
 
-    @list_of_contacts = matching_contacts.order({ :followup_date => :desc })
+    @list_of_contacts_upcoming = matching_contacts.where("followup_date >= ?", Date.today).order({ :followup_date => :asc })
+
+    @list_of_contacts_past = matching_contacts.where.not({ :followup_date => nil}).where("followup_date < ?", Date.today).order({ :followup_date => :desc })
+    
+    @list_of_contacts_all = matching_contacts#.order('employee.last_name' => :asc)
+
+'bars.id'
 
     render({ :template => "contacts/index.html.erb" })
 

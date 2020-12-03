@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get("/", { :controller => "application", :action => "home" })
+  get("/", { :controller => "home", :action => "home" })
 
   # Routes for the Employee resource:
 

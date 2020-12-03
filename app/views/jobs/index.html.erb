@@ -25,7 +25,7 @@
         <input type = hidden id="firm_id_box" name="query_firm_id" value= "x">
 
         <label for="bookmark_id_box">
-          My Company
+          My Company*
         </label>
 
         <select id="bookmark_id_box" name="query_bookmark_id">
@@ -37,7 +37,7 @@
 
       <div>
         <label for="role_box">
-          Role
+          Role*
         </label>
 
         <input type="text" id="role_box" name="query_role">
@@ -69,7 +69,7 @@
 
       <div>
         <label for="application_deadline_box">
-          Application deadline
+          Application deadline*
         </label>
 
         <input type="date" id="application_deadline_box" name="query_application_deadline">
@@ -84,7 +84,7 @@
 
 <hr>
 
-<h3>Jobs: to apply</h3>
+<h3>Jobs: To Apply</h3>
 
 <div>
   <div>
@@ -171,7 +171,7 @@
 
 <hr>
 
-<h3>Jobs: applied </h3>
+<h3>Jobs: Applied </h3>
 
 <div>
   <div>
@@ -213,6 +213,93 @@
       </tr>
 
       <% @list_of_jobs_applied.each do |a_job| %>
+      <tr>
+        <td>
+          <a href="/bookmarks/<%=a_job.bookmark_id%>"> 
+            <%= a_job.firm.name %>
+          </a>
+        </td>
+
+        <td>
+          <a href="/jobs/<%=a_job.id%>%">
+          <%= a_job.role %>
+          </a>
+        </td>
+
+        <td>
+          <%= a_job.location %>
+        </td>
+
+        <td>
+          <%= a_job.notes %>
+        </td>
+
+        <td>
+          <%= a_job.application_deadline %>
+        </td>
+
+        <td>
+          <%= a_job.application_date %>
+        </td>
+
+        <td>
+          <%= a_job.application_status %>
+        </td>
+
+        <td>
+          <%= a_job.application_next_steps %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<h3>Jobs: Expired </h3>
+
+<div>
+  <div>
+    <table>
+      <tr>
+
+        <th>
+          My Company
+        </th>
+
+        <th>
+          Role
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Application deadline
+        </th>
+
+        <th>
+          Date applied
+        </th>
+
+        <th>
+          App status
+        </th>
+
+        <th>
+          Next steps
+        </th>
+
+      </tr>
+
+      <% @list_of_jobs_old.each do |a_job| %>
       <tr>
         <td>
           <a href="/bookmarks/<%=a_job.bookmark_id%>"> 

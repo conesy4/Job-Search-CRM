@@ -18,7 +18,7 @@
 
       <div>
         <label for="name_box">
-          Name
+          Name*
         </label>
 
         <input type="text" id="name_box" name="query_name">
@@ -26,7 +26,7 @@
 
       <div>
         <label for="industry_box">
-          Industry
+          Industry*
         </label>
 
         <select id="industry_box" name="query_industry">
@@ -89,10 +89,6 @@
     <table>
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
           Name
         </th>
 
@@ -103,6 +99,10 @@
         <th>
           Location
         </th>
+
+        <th>
+          Website
+        </th>        
 
         <th>
           Details
@@ -128,9 +128,6 @@
 
       <% @list_of_firms.each do |a_firm| %>
       <tr>
-        <td>
-          <%= a_firm.id %>
-        </td>
 
         <td>
           <a href="/firms/<%= a_firm.id %>">
@@ -144,6 +141,11 @@
 
         <td>
           <%= a_firm.location %>
+        </td>
+
+        <td>
+          <a href="http://<%= a_firm.website %>" target="_blank" > 
+          <%= a_firm.website %></a>
         </td>
 
         <td>

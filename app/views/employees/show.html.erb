@@ -137,7 +137,7 @@
     <form action="/modify_employee/<%= @the_employee.id %>"  method="post" >
       <div>
         <label for="first_name_box">
-          First name
+          First name*
         </label>
 
         <input type="text" id="first_name_box" name="query_first_name" value="<%= @the_employee.first_name %>">
@@ -145,7 +145,7 @@
 
       <div>
         <label for="last_name_box">
-          Last name
+          Last name*
         </label>
 
         <input type="text" id="last_name_box" name="query_last_name" value="<%= @the_employee.last_name %>">

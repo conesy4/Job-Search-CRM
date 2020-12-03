@@ -18,7 +18,7 @@
 
       <div>
         <label for="first_name_box">
-          First name
+          First name*
         </label>
 
         <input type="text" id="first_name_box" name="query_first_name">
@@ -26,7 +26,7 @@
 
       <div>
         <label for="last_name_box">
-          Last name
+          Last name*
         </label>
 
         <input type="text" id="last_name_box" name="query_last_name">
@@ -34,7 +34,7 @@
 
       <div>
         <label for="firm_id_box">
-          Firm
+          Firm*
         </label>
 
         <select id="firm_id_box" name="query_firm_id">
@@ -98,10 +98,6 @@
     <table>
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
           Name
         </th>
 
@@ -139,9 +135,6 @@
 
       <% @list_of_employees.each do |an_employee| %>
       <tr>
-        <td>
-          <%= an_employee.id %>
-        </td>
 
         <td>
           <a href="/employees/<%= an_employee.id %>">

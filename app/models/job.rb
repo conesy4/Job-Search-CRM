@@ -43,7 +43,9 @@ class Job < ApplicationRecord
   validates(:user_id, { :presence => true })
   
   validates(:role, { :presence => true })
-  
+
+  validates(:application_deadline, { :presence => true })  
+
   validates(:firm_id, { :presence => true })
 
   validates(:bookmark_id, { :presence => true })

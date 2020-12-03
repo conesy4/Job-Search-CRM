@@ -11,9 +11,15 @@ class JobsController < ApplicationController
 
     matching_jobs = Job.where({ :user_id => @current_user})
 
-    @list_of_jobs = matching_jobs.where({ :application_date => nil}).order({ :application_deadline => :desc })
+    matching_jobs_upcoming = matching_jobs.where("application_deadline >= ?", Date.today)    
+
+    matching_jobs_old = matching_jobs.where("application_deadline < ?", Date.today)   
+
+    @list_of_jobs = matching_jobs_upcoming.where({ :application_date => nil}).order({ :application_deadline => :asc })
 
     @list_of_jobs_applied = matching_jobs.where.not({ :application_date => nil}).order({ :application_date => :desc })
+
+    @list_of_jobs_old = matching_jobs_old.where({ :application_date => nil}).order({ :application_deadline => :desc })
 
     render({ :template => "jobs/index.html.erb" })
 
